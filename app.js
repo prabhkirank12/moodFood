@@ -11,8 +11,8 @@ mongoose
     .then(() => console.log("Connected to MongoDB successfully"))
     .catch(err => console.log(err));
 
-app.get("/", (req, res) => res.send("Welcome to moodFood"));
-app.use("/api/users", users);
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
+app.get("/", (req, res) => res.send("Welcome to moodFood"));
+app.use("/api/users", users);
 app.listen(port, () => console.log(`Server is running on port ${port}`));

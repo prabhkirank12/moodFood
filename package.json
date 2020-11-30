@@ -20,6 +20,7 @@
     "validator": "^13.1.17"
   },
   "devDependencies": {
+    "jquery": "^3.5.1",
     "nodemon": "^2.0.6"
   }
 }
