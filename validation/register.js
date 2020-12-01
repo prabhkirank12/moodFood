@@ -5,9 +5,7 @@ module.exports = function validateRegisterInput(data) {
     let errors = {};
 
     data.email = validText(data.email) ? data.email : "";
-    console.log(data.password)
     data.password = validText(data.password) ? data.password : "";
-    console.log(data.password)
     data.password2 = validText(data.password2) ? data.password2 : "";
     data.firstName = validText(data.firstName) ? data.firstName : "";
     data.lastName = validText(data.lastName) ? data.lastName : "";
