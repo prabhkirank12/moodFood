@@ -7,7 +7,6 @@ class SignupForm extends React.Component {
         this.state = {
             email: '',
             password: '',
-            password2: '',
             firstName: '',
             lastName: '',
             errors: {}
@@ -60,18 +59,6 @@ class SignupForm extends React.Component {
                 <form onSubmit={this.handleSubmit}>
                     <div>
                         <input type="text"
-                            value={this.state.firstName}
-                            onChange={this.update('firstName')}
-                            placeholder="First Name"
-                        />
-                        <br />
-                        <input type="text"
-                            value={this.state.lastName}
-                            onChange={this.update('lastName')}
-                            placeholder="Last Name"
-                        />
-                        <br />
-                        <input type="text"
                             value={this.state.email}
                             onChange={this.update('email')}
                             placeholder="Email"
@@ -83,10 +70,16 @@ class SignupForm extends React.Component {
                             placeholder="Password"
                         />
                         <br />
-                        <input type="password"
-                            value={this.state.password2}
-                            onChange={this.update('password2')}
-                            placeholder="Confirm Password"
+                        <input type="text"
+                            value={this.state.firstName}
+                            onChange={this.update('firstName')}
+                            placeholder="First Name"
+                        />
+                        <br />
+                        <input type="text"
+                            value={this.state.lastName}
+                            onChange={this.update('lastName')}
+                            placeholder="Last Name"
                         />
                         <br />
                         <input type="submit" value="Submit" />
