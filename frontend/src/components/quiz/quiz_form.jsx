@@ -7,7 +7,7 @@ class QuizForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      currentMood: 1, //Default is Happy (1),
+      currentMood: 1, //Default is Happy (1), each mood will have a number
       happySelection: [],
       stressedSelection: [],
       sadSelection: [],
@@ -80,12 +80,6 @@ class QuizForm extends React.Component {
   }
 
   render() {
-    const { 
-      currentMood,
-      happySelection, 
-      stressedSelection, 
-      sadSelection, 
-      overwhelmedSelection } = this.state;
 
     <div>
       <h1>Mood Quiz</h1>
@@ -93,22 +87,22 @@ class QuizForm extends React.Component {
         <HappyMood
           currentMood={currentMood}
           handleSelection={this.handleSelection}
-          happySelection={happySelection}
+          happySelection={this.state.happySelection}
         />
         <StressedMood
           currentMood={currentMood}
           handleSelection={this.handleSelection}
-          stressedSelection={stressedSelection}
+          stressedSelection={this.state.stressedSelection}
         />
         <SadMood 
           currentMood={currentMood}
           handleSelection={this.handleSelection}
-          sadSelection={sadSelection}
+          sadSelection={this.state.sadSelection}
         />
         <OverwhelmedMood
           currentMood={currentMood}
           handleSelection={this.handleSelection}
-          overwhelmedSelection={overwhelmedSelection}
+          overwhelmedSelection={this.state.overwhelmedSelection}
         />
         <div>
           {this.backButton}
