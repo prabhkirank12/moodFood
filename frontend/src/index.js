@@ -24,7 +24,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const currentTime = Date.now() / 1000;
 
     if (decodedUser.exp < currentTime) {
-      store.dipsaptch(logoug());
+      store.dispatch(logout());
       window.location.href = "/login";
     }
   } else {
@@ -32,5 +32,5 @@ document.addEventListener('DOMContentLoaded', () => {
   }
   const root = document.getElementById("root");
 
-  ReactDom.render(<Root store={store} />, root);
+  ReactDOM.render(<Root store={store} />, root);
 });
