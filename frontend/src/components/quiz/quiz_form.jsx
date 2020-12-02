@@ -1,4 +1,5 @@
 import React from 'react';
+import { Redirect } from 'react-router-dom';
 import HappyMood from './happy_mood';
 import StressedMood from './stressed_mood';
 
@@ -9,9 +10,9 @@ class QuizForm extends React.Component {
     this.state = {
       currentMood: 1, //Default is Happy (1), each mood will have a number
       happySelection: [],
-      stressedSelection: [],
-      sadSelection: [],
-      overwhelmedSelection: []
+      // stressedSelection: [],
+      // sadSelection: [],
+      // overwhelmedSelection: []
     }
     this._nextMood = this._nextMood.bind(this);
     this._prevMood = this._prevMood.bind(this);
@@ -63,6 +64,11 @@ class QuizForm extends React.Component {
     return null;
   }
 
+  componentDidMount() {
+    
+  }
+
+
   //handles the buttons the user selects on each mood page
   handleSelection(e) {
     e.preventDefault();
@@ -81,35 +87,44 @@ class QuizForm extends React.Component {
 
   render() {
 
-    <div>
-      <h1>Mood Quiz</h1>
-      <form onSubmit={this.handleSubmit}>
-        <HappyMood
-          currentMood={currentMood}
-          handleSelection={this.handleSelection}
-          happySelection={this.state.happySelection}
-        />
-        <StressedMood
-          currentMood={currentMood}
-          handleSelection={this.handleSelection}
-          stressedSelection={this.state.stressedSelection}
-        />
-        <SadMood 
-          currentMood={currentMood}
-          handleSelection={this.handleSelection}
-          sadSelection={this.state.sadSelection}
-        />
-        <OverwhelmedMood
-          currentMood={currentMood}
-          handleSelection={this.handleSelection}
-          overwhelmedSelection={this.state.overwhelmedSelection}
-        />
-        <div>
-          {this.backButton}
-          {this.nextButton}
-        </div>
-      </form>
-    </div>
+    const {currentUser, moods} = this.props;
+    console.log(moods);
+    if (Object.keys(moods).length > 0) {
+      <Redirect to="/dashboard" />
+    } else {
+      return (
+
+      <div>
+        <h1>Mood Quiz</h1>
+        <form onSubmit={this.handleSubmit}>
+          <HappyMood
+            currentMood={this.state.currentMood}
+            handleSelection={this.handleSelection}
+            happySelection={this.state.happySelection}
+            />
+          {/* <StressedMood
+            currentMood={currentMood}
+            handleSelection={this.handleSelection}
+            stressedSelection={this.state.stressedSelection}
+            />
+          <SadMood 
+            currentMood={currentMood}
+            handleSelection={this.handleSelection}
+            sadSelection={this.state.sadSelection}
+            />
+          <OverwhelmedMood
+            currentMood={currentMood}
+            handleSelection={this.handleSelection}
+            overwhelmedSelection={this.state.overwhelmedSelection}
+            /> */}
+          <div>
+            {this.backButton}
+            {this.nextButton}
+          </div>
+        </form>
+      </div>
+      )
+    }
   }
 
 }
