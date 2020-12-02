@@ -1,13 +1,18 @@
 import { RECEIVE_USER_LOGOUT, RECEIVE_CURRENT_USER, RECEIVE_USER_SIGNIN } from "../actions/session_actions";
+import { RECEIVE_USER_MOOD } from "../actions/mood_actions";
 
 
 //Why is default user an empty object but logging out returns undefined?
 const defaultState = {
   isAuthenticated: false,
-  user: {}
+  user: {
+    moods: {}
+  }
 };
 
 const sessionReducer = (state = defaultState, action) => {
+  Object.freeze(state);
+  let newState = Object.assign({}, state);
   switch (action.type) {
     case RECEIVE_USER_LOGOUT:
       return {
@@ -27,6 +32,9 @@ const sessionReducer = (state = defaultState, action) => {
         isAuthenticated: !!action.currentUser,
         user: action.currentUser
       }
+    case RECEIVE_USER_MOOD:
+      newState.user.moods = action.newMood.data;
+      return newState;
     default:
       return state;
   }

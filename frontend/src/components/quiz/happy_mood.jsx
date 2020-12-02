@@ -4,7 +4,7 @@ class HappyMood extends React.Component {
 
   render () {
 
-    const { currentMood, happySelection } = this.props;
+    const { currentMood, happySelection, handleSelection } = this.props;
 
     if (currentMood !== 1) {
       return null
@@ -14,18 +14,18 @@ class HappyMood extends React.Component {
       <div>
         <h1>Happy</h1>
         <div>
-          <button name={happySelection} value="Italian">Italian</button>
-          <button name={happySelection} value="Mexican">Mexican</button>
-          <button name={happySelection} value="Pizza">Pizza</button>
-          <button name={happySelection} value="Japanese">Japanese</button>
-          <button name={happySelection} value="Indian">Indian</button>
-          <button name={happySelection} value="Chinese">Chinese</button>
-          <button name={happySelection} value="American">American</button>
-          <button name={happySelection} value="Dessert">Dessert</button>
-          <button name={happySelection} value="Thai">Thai</button>
-          <button name={happySelection} value="Fast Food">Fast Food</button>
-          <button name={happySelection} value="Seafood">Seafood</button>
-          <button name={happySelection} value="Vegetarian">Vegetarian</button>
+          <button name={happySelection} onClick={handleSelection} value="Italian">Italian</button>
+          <button name={happySelection} onClick={handleSelection} value="Mexican">Mexican</button>
+          <button name={happySelection} onClick={handleSelection} value="Pizza">Pizza</button>
+          <button name={happySelection} onClick={handleSelection} value="Japanese">Japanese</button>
+          <button name={happySelection} onClick={handleSelection} value="Indian">Indian</button>
+          <button name={happySelection} onClick={handleSelection} value="Chinese">Chinese</button>
+          <button name={happySelection} onClick={handleSelection} value="American">American</button>
+          <button name={happySelection} onClick={handleSelection} value="Dessert">Dessert</button>
+          <button name={happySelection} onClick={handleSelection} value="Thai">Thai</button>
+          <button name={happySelection} onClick={handleSelection} value="Fast Food">Fast Food</button>
+          <button name={happySelection} onClick={handleSelection} value="Seafood">Seafood</button>
+          <button name={happySelection} onClick={handleSelection} value="Vegetarian">Vegetarian</button>
         </div>
       </div>
     )
