@@ -7,6 +7,7 @@ class SignupForm extends React.Component {
         this.state = {
             email: '',
             password: '',
+            password2: '',
             firstName: '',
             lastName: '',
             errors: {}
