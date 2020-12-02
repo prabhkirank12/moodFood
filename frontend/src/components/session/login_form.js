@@ -15,13 +15,7 @@ class LoginForm extends React.Component {
         this.renderErrors = this.renderErrors.bind(this);
     };
 
-    // we want to redirect to dashboard when logged in
-    componentWillReceiveProps(nextProps) {
-        if (nextProps.currentUser === true) {
-            this.props.history.push('/dashboard')
-        };
-        this.setState({errors: nextProps.errors});
-    };
+
 
     update(field) {
         return e => this.setState({
@@ -42,9 +36,9 @@ class LoginForm extends React.Component {
     renderErrors() {
         return (
             <ul>
-                {Object.keys(this.state.errors).map((error,i) => (
+                {Object.keys(this.props.errors).map((error,i) => (
                     <li key={`error-${i}`}>
-                        {this.state.errors[error]}
+                        {this.props.errors[error]}
                     </li>
                 ))}
             </ul>

@@ -90,7 +90,9 @@ class QuizForm extends React.Component {
     const {currentUser, moods} = this.props;
     console.log(moods);
     if (Object.keys(moods).length > 0) {
-      <Redirect to="/dashboard" />
+      return (
+        <Redirect to="/dashboard" />
+      )
     } else {
       return (
 

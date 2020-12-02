@@ -1,6 +1,6 @@
 import React from 'react';
-import { AuthRoute, ProtectedRoute } from '../util/route_util';
-import { Switch, Route } from 'react-router-dom';
+import { AuthRoute, SemiProtectedRoute, ProtectedRoute } from '../util/route_util';
+import { withRouter, Switch, Route } from 'react-router-dom';
 
 import Greeting from './greeting/greeting';
 import Dashboard from './dashboard/dashboard';
@@ -16,10 +16,10 @@ const App = () => (
             <Route exact path="/" component={Greeting} />
             <AuthRoute exact path="/login" component={LoginFormContainer} />
             <AuthRoute exact path="/signup" component={SignupFormContainer} />
-            <ProtectedRoute exact path="/quiz" component={QuizFormContainer} />
+            <SemiProtectedRoute exact path="/quiz" component={QuizFormContainer} />
             <ProtectedRoute exact path="/dashboard" component={Dashboard} />
         </Switch>
     </div>
 );
 
-export default App;
+export default withRouter(App);
