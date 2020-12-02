@@ -8,12 +8,12 @@ const apiKey = require('../../config/keys').googleAPIKey;
 router.get("/",
     passport.authenticate("jwt", {session: false}),
     (req, res) => {
-
-        let food = req.body.food.replace(" ", "%20");
-        const location = req.body.location;
-
-        axios.get(`https://maps.googleapis.com/maps/api/place/findplacefromtext/json?input=${food}&inputtype=textquery&locationbias=circle:1600@${location}&key=${apiKey}`)
-            .then(resp => res.json(resp));
+        const food = req.query.food.replace(" ", "%20");
+        const location = req.query.location;
+        const radius = req.query.radius;
+        axios.get(`https://maps.googleapis.com/maps/api/place/nearbysearch/json?keyword=${food}&location=${location}&type=restaurant&radius=${radius}&key=${apiKey}`)
+            .then(resp => res.json(resp.data))
+            .catch(err => console.log(err))
     }
 )
 
