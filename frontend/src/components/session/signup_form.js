@@ -34,6 +34,7 @@ class SignupForm extends React.Component {
         let user = {
             email: this.state.email,
             password: this.state.password,
+            password2: this.state.password2,
             firstName: this.state.firstName,
             lastName: this.state.lastName
         };
@@ -59,6 +60,18 @@ class SignupForm extends React.Component {
                 <form onSubmit={this.handleSubmit}>
                     <div>
                         <input type="text"
+                            value={this.state.firstName}
+                            onChange={this.update('firstName')}
+                            placeholder="First Name"
+                        />
+                        <br />
+                        <input type="text"
+                            value={this.state.lastName}
+                            onChange={this.update('lastName')}
+                            placeholder="Last Name"
+                        />
+                        <br />
+                        <input type="text"
                             value={this.state.email}
                             onChange={this.update('email')}
                             placeholder="Email"
@@ -70,16 +83,10 @@ class SignupForm extends React.Component {
                             placeholder="Password"
                         />
                         <br />
-                        <input type="text"
-                            value={this.state.firstName}
-                            onChange={this.update('firstName')}
-                            placeholder="First Name"
-                        />
-                        <br />
-                        <input type="text"
-                            value={this.state.lastName}
-                            onChange={this.update('lastName')}
-                            placeholder="Last Name"
+                        <input type="password"
+                            value={this.state.password2}
+                            onChange={this.update('password2')}
+                            placeholder="Confirm Password"
                         />
                         <br />
                         <input type="submit" value="Submit" />
