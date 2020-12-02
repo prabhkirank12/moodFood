@@ -17,6 +17,11 @@ const UserSchema = new Schema({
   password: {
     type: String,
     required: true
+  },
+  moods: {
+    type: Map,
+    of: [String],
+    default: {},
   }
 }, {
   timestamps: true

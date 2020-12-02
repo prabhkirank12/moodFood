@@ -20,12 +20,12 @@ class LoginForm extends React.Component {
         if (nextProps.currentUser === true) {
             this.props.history.push('/dashboard')
         };
-        this.setState({ errors: nextProps.errors });
+        this.setState({errors: nextProps.errors});
     };
 
     update(field) {
         return e => this.setState({
-            [field]: e.currenTarget.value
+            [field]: e.currentTarget.value
         });
     };
 
