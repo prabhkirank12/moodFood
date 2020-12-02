@@ -2,6 +2,8 @@ import React from 'react';
 import { Redirect } from 'react-router-dom';
 import HappyMood from './happy_mood';
 import StressedMood from './stressed_mood';
+import SadMood from './sad';
+import OverwhelmedMood from './overwhelmed';
 
 class QuizForm extends React.Component {
 
@@ -10,18 +12,19 @@ class QuizForm extends React.Component {
     this.state = {
       currentMood: 1, //Default is Happy (1), each mood will have a number
       happySelection: [],
-      // stressedSelection: [],
-      // sadSelection: [],
-      // overwhelmedSelection: []
+      stressedSelection: [],
+      sadSelection: [],
+      overwhelmedSelection: []
     }
     this._nextMood = this._nextMood.bind(this);
     this._prevMood = this._prevMood.bind(this);
     this.handleSelection = this.handleSelection.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   //moods will each have a number associated with them
   //logic for selecting which mood is previous/next based on the current
-  _nextMood() {
+  _nextMood(e) {
     let currentMood = this.state.currentMood;
     //If our current mood is less than 4, we want to add one
     //Ensures we never go above 4 since we have 4 moods
@@ -29,9 +32,11 @@ class QuizForm extends React.Component {
     this.setState({
       currentMood: currentMood
     })
+    { this.handleSubmit(e) }
   }
 
-  _prevMood() {
+  _prevMood(e) {
+    e.preventDefault();
     let currentMood = this.state.currentMood;
     //As long as we above 1, we will subtract 1
     //Ensures we never go below 1
@@ -56,9 +61,9 @@ class QuizForm extends React.Component {
   get nextButton() {
     let currentMood = this.state.currentMood;
 
-    if (currentMood < 3) {
+    if (currentMood <= 4) {
       return (
-        <button onClick={this._nextMood}>Next</button>
+        <button onClick={this._nextMood}>Submit this Mood</button>
       )
     }
     return null;
@@ -73,8 +78,10 @@ class QuizForm extends React.Component {
   handleSelection(e) {
     e.preventDefault();
     const { name, value } = e.target;
+    const foods = this.state.name ? [...this.state[name]] : [];
+    foods.push(value);
     this.setState({
-      [name] : this.state[name].push(value)
+      [name]: foods,
     })
   }
 
@@ -89,11 +96,6 @@ class QuizForm extends React.Component {
 
     const {currentUser, moods} = this.props;
     console.log(moods);
-    if (Object.keys(moods).length > 0) {
-      return (
-        <Redirect to="/dashboard" />
-      )
-    } else {
       return (
 
       <div>
@@ -104,29 +106,30 @@ class QuizForm extends React.Component {
             handleSelection={this.handleSelection}
             happySelection={this.state.happySelection}
             />
-          {/* <StressedMood
-            currentMood={currentMood}
+          <StressedMood
+            currentMood={this.state.currentMood}
             handleSelection={this.handleSelection}
             stressedSelection={this.state.stressedSelection}
             />
           <SadMood 
-            currentMood={currentMood}
+            currentMood={this.state.currentMood}
             handleSelection={this.handleSelection}
             sadSelection={this.state.sadSelection}
             />
           <OverwhelmedMood
-            currentMood={currentMood}
+            currentMood={this.state.currentMood}
             handleSelection={this.handleSelection}
             overwhelmedSelection={this.state.overwhelmedSelection}
-            /> */}
+            />
           <div>
             {this.backButton}
             {this.nextButton}
           </div>
+
         </form>
       </div>
       )
-    }
+    
   }
 
 }
