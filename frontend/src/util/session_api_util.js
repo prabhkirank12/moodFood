@@ -6,7 +6,6 @@ export const setAuthToken = token => {
     } else {
         delete axios.defaults.headers.common["Authorization"];
     }
-<<<<<<< HEAD
 };
 
 export const signup = (userData) => {
@@ -16,11 +15,7 @@ export const signup = (userData) => {
 export const login = (userData) => {
     return axios.post('/api/users/login', userData);
 };
-<<<<<<< HEAD
-=======
-}
+
 
 export default setAuthToken;
->>>>>>> beb5986c90600a94caefb3e51747c8d42a4c84e8
-=======
->>>>>>> master
+
