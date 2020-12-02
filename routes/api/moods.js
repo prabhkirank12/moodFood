@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 const mongoose = require('mongoose');
 const passport = require('passport');
+const validateMoods = require("../../validation/moods");
 
 router.post("/new",
     passport.authenticate("jwt", {session: false}),

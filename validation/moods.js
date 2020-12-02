@@ -23,11 +23,11 @@ const FOODS = [
     "Vegetarian",
 ]
 
-export default data => {
+module.exports = function(data) {
     let errors = {};
 
     Object.assign(errors, validateMood(data.mood).errors);
-    Object.assign(errors, validateFoods(data.foods));
+    Object.assign(errors, validateFoods(data.foods).errors);
 
     return {
         errors,
@@ -40,8 +40,12 @@ function validateMood(mood) {
 
     mood = validText(mood) ? mood : "";
 
-    if (!Validator.isIn(MOODS)) {
+    if (!Validator.isIn(mood, MOODS)) {
         errors.mood = `${mood} is an invalid mood`;
+    }
+
+    if (Validator.isEmpty(mood)) {
+        errors.mood = "Mood field is required";
     }
 
     return {
@@ -54,9 +58,9 @@ function validateFood(food) {
 
     let errors = {};
     
-    mood = validText(mood) ? mood : "";
+    food = validText(food) ? food : "";
     
-    if (!Validator.isIn(MOODS)) {
+    if (!Validator.isIn(food, FOODS)) {
         errors.foods = `${food} is an invalid food option`;
     }
 
