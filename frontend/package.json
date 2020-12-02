@@ -15,11 +15,8 @@
     "react-router-dom": "^5.2.0",
     "react-scripts": "4.0.1",
     "redux": "^4.0.5",
-<<<<<<< HEAD
     "redux-logger": "^3.0.6",
     "redux-thunk": "^2.3.0",
-=======
->>>>>>> beb5986c90600a94caefb3e51747c8d42a4c84e8
     "web-vitals": "^0.2.4"
   },
   "scripts": {
