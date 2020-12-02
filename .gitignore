@@ -1,5 +1,8 @@
 /config/keys.js
 /node_modules
 /frontend/node_modules
+<<<<<<< HEAD
 
+=======
+>>>>>>> master
 /frontend/.eslintcache
