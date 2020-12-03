@@ -8,7 +8,8 @@ import NavBarContainer from './navbar/navbar_container';
 import LoginFormContainer from './session/login_form_container';
 import SignupFormContainer from './session/signup_form_container';
 import QuizFormContainer from './quiz/quiz_form_container';
-import MapContainer from './dashboard/map';
+// import MapContainer from './dashboard/map';
+import MapBuffer from "./map/map_buffer";
 
 const App = () => (
     <div>
@@ -19,7 +20,7 @@ const App = () => (
             <AuthRoute exact path="/signup" component={SignupFormContainer} />
             <SemiProtectedRoute exact path="/quiz" component={QuizFormContainer} />
             <ProtectedRoute exact path="/dashboard" component={Dashboard} />
-            <ProtectedRoute exact path="/map" component={MapContainer} />
+            <ProtectedRoute exact path="/map" component={MapBuffer} />
         </Switch>
     </div>
 );
