@@ -47,27 +47,29 @@ class LoginForm extends React.Component {
     render() {
         return (
             <div className="session-container">
-                <form onSubmit={this.handleSubmit} className="session-form-box">
-                    <div>
-                        <input type="text" 
-                            value={this.state.email}
-                            onChange={this.update('email')}
-                            placeholder="Email"
-                        />
-                        <br/>
-                        <input type="password"
-                            value={this.state.password}
-                            onChange={this.update('password')}
-                            placeholder="Password"
-                        />              
-                        <br/>
-                        <input type="submit" value="Submit" />
-                        {this.renderErrors()}         
+                <div className="form-container">
+                    <form onSubmit={this.handleSubmit} className="session-form-box">
+                        <div>
+                            <input type="text" 
+                                value={this.state.email}
+                                onChange={this.update('email')}
+                                placeholder="Email"
+                            />
+                            <br/>
+                            <input type="password"
+                                value={this.state.password}
+                                onChange={this.update('password')}
+                                placeholder="Password"
+                            />              
+                            <br/>
+                            <input type="submit" value="SUBMIT" />
+                            {this.renderErrors()}         
+                        </div>
+                    </form>
+                    <div className="session-link">
+                        <span>New to moodfood? </span>
+                        <Link to="/signup">Create an account.</Link>
                     </div>
-                </form>
-                <div className="session-link">
-                    <span>New to moodfood? </span>
-                    <Link to="/signup">Create an account.</Link>
                 </div>
             </div>
         );
