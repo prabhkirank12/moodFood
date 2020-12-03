@@ -1,14 +1,30 @@
+$dark-gray: #222223;
+$light-gray: #3B3B3B;
+$off-white: #F7F7F7;
+
 //ADVENTUROUS
 $adv-light: #7A80FF;
 $adv-dark: #531C92;
 
 //HAPPY
+$happy-light: #FFE381;
+$happy-dark: #FEAB03;
 
 //SAD
+$sad-light: #06B8D9;
+$sad-dark: #056193;
+
 //OVERWHELMED
+$over-light: #DEC3DC;
+$over-dark: #C370C0;
+
 //STRESSED
+$stress-light: #A5EBC8;
+$stress-dark: #36B37E;
+
 //HANGRY
 $hangry-light: #FF9073;
+$hangry-dark: #DE360D;
 
 .Adventurous {
     
@@ -18,125 +34,125 @@ $hangry-light: #FF9073;
     }
 
     button {
-        border: 2px solid #531C92; 
-        background-color: #F7F7F7;
-        color: #7A80FF; 
+        border: 2px solid$adv-dark; 
+        background-color: $off-white;
+        color: $adv-light; 
     }
 
     button:hover {
-        border: 2px solid #531C92; 
-        background-color: #F7F7F7;
-        color: #531C92; 
+        border: 2px solid$adv-dark; 
+        background-color: $off-white;
+        color:$adv-dark; 
     }
 
     button:focus {
-        border: 2px solid #531C92; 
-        background-color: #531C92; 
-        color: #7A80FF; 
+        border: 2px solid$adv-dark; 
+        background-color:$adv-dark; 
+        color: $adv-light; 
     }
 }
 
 .Happy {
 
     .background-color-light {
-        background-color: #FFE381;
-        color: #FEAB03;
+        background-color: $happy-light;
+        color: $happy-dark;
     }
 
     button {
-        border: 2px solid #FEAB03; 
-        background-color: #F7F7F7;
-        color: #FFE381; 
+        border: 2px solid $happy-dark; 
+        background-color: $off-white;
+        color: $happy-light; 
     }
 
     button:hover {
-        border: 2px solid #FEAB03; 
-        background-color: #F7F7F7;
-        color: #FEAB03; 
+        border: 2px solid $happy-dark; 
+        background-color: $off-white;
+        color: $happy-dark; 
     }
 
     button:focus {
-        border: 2px solid #FEAB03; 
-        background-color: #FEAB03; 
-        color: #FFE381; 
+        border: 2px solid $happy-dark; 
+        background-color: $happy-dark; 
+        color: $happy-light; 
     }
 }
 
 .Sad {
 
     .background-color-light {
-        background-color: #06B8D9;
-        color: #056193;
+        background-color: $sad-light;
+        color: $sad-dark;
     }
 
     button {
-        border: 2px solid #056193; 
-        background-color: #F7F7F7;
-        color: #06B8D9; 
+        border: 2px solid $sad-dark; 
+        background-color: $off-white;
+        color: $sad-light; 
     }
 
     button:hover {
-        border: 2px solid #056193; 
-        background-color: #F7F7F7;
-        color: #056193; 
+        border: 2px solid $sad-dark; 
+        background-color: $off-white;
+        color: $sad-dark; 
     }
 
     button:focus {
-        border: 2px solid #056193; 
-        background-color: #056193; 
-        color: #06B8D9; 
+        border: 2px solid $sad-dark; 
+        background-color: $sad-dark; 
+        color: $sad-light; 
     }
 }
 
 .Overwhelmed {
 
     .background-color-light {
-        background-color: #DEC3DC;
-        color: #C370C0;
+        background-color: $over-light;
+        color: $over-dark;
     }
 
     button {
-        border: 2px solid #C370C0; 
-        background-color: #F7F7F7;
-        color: #DEC3DC; 
+        border: 2px solid $over-dark; 
+        background-color: $off-white;
+        color: $over-light; 
     }
 
     button:hover {
-        border: 2px solid #C370C0; 
-        background-color: #F7F7F7;
-        color: #C370C0; 
+        border: 2px solid $over-dark; 
+        background-color: $off-white;
+        color: $over-dark; 
     }
 
     button:focus {
-        border: 2px solid #C370C0; 
-        background-color: #C370C0; 
-        color: #DEC3DC; 
+        border: 2px solid $over-dark; 
+        background-color: $over-dark; 
+        color: $over-light; 
     }
 }
 
 .Stressed {
 
     .background-color-light {
-        background-color: #A5EBC8;
-        color: #36B37E;
+        background-color: $stress-light;
+        color: $stress-dark;
     }
 
     button {
-        border: 2px solid #36B37E; 
-        background-color: #F7F7F7;
-        color: #A5EBC8; 
+        border: 2px solid $stress-dark; 
+        background-color: $off-white;
+        color: $stress-light; 
     }
 
     button:hover {
-        border: 2px solid #36B37E; 
-        background-color: #F7F7F7;
-        color: #36B37E; 
+        border: 2px solid $stress-dark; 
+        background-color: $off-white;
+        color: $stress-dark; 
     }
 
     button:focus {
-        border: 2px solid #36B37E; 
-        background-color: #36B37E; 
-        color: #A5EBC8; 
+        border: 2px solid $stress-dark; 
+        background-color: $stress-dark; 
+        color: $stress-light; 
     }
 }
 
@@ -149,27 +165,27 @@ $hangry-light: #FF9073;
 
     button {
         border: 2px solid #DE360D; 
-        background-color: #F7F7F7;
-        color: #FF9073; 
+        background-color: $off-white;
+        color: $hangry-light; 
     }
 
     button:hover {
         border: 2px solid #DE360D; 
-        background-color: #F7F7F7;
+        background-color: $off-white;
         color: #DE360D; 
     }
 
     button:focus {
         border: 2px solid #DE360D; 
         background-color: #DE360D; 
-        color: #FF9073; 
+        color: $hangry-light; 
     }
 }
 
 .site-background-dark {
-    background-color: #222223;
+    background-color: $dark-gray;
 }
 
 .site-background-light {
-    background-color: #3B3B3B;
+    background-color: $light-gray;
 }

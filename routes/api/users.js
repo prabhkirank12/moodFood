@@ -87,7 +87,7 @@ router.post("/login", (req, res) => {
             bcrypt.compare(password, user.password)
                 .then(isMatch => {
                     if (isMatch) {
-                        moodsExist = Object.keys(user.moods).length > 0;
+                        moodsExist = user.moods.size > 0;
                         const payload = {id: user.id, email: user.email, firstName: user.firstName, lastName: user.lastName, moodsExist, mapsAPIKey: keys.mapsAPIKey}
 
                         jwt.sign(

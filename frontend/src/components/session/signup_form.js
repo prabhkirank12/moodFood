@@ -1,5 +1,6 @@
 import React from 'react';
-import { withRouter } from 'react-router-dom';
+import { withRouter, Link } from 'react-router-dom';
+import './session.scss';
 
 class SignupForm extends React.Component {
     constructor(props) {
@@ -50,43 +51,49 @@ class SignupForm extends React.Component {
 
     render() {
         return (
-            <div>
-                <form onSubmit={this.handleSubmit}>
-                    <div>
-                        <input type="text"
-                            value={this.state.firstName}
-                            onChange={this.update('firstName')}
-                            placeholder="First Name"
-                        />
-                        <br />
-                        <input type="text"
-                            value={this.state.lastName}
-                            onChange={this.update('lastName')}
-                            placeholder="Last Name"
-                        />
-                        <br />
-                        <input type="text"
-                            value={this.state.email}
-                            onChange={this.update('email')}
-                            placeholder="Email"
-                        />
-                        <br />
-                        <input type="password"
-                            value={this.state.password}
-                            onChange={this.update('password')}
-                            placeholder="Password"
-                        />
-                        <br />
-                        <input type="password"
-                            value={this.state.password2}
-                            onChange={this.update('password2')}
-                            placeholder="Confirm Password"
-                        />
-                        <br />
-                        <input type="submit" value="Submit" />
-                        {this.renderErrors()}
+            <div className="session-container">
+                <div className="form-container">
+                    <form onSubmit={this.handleSubmit} className="session-form-box">
+                        <div>
+                            <input type="text"
+                                value={this.state.firstName}
+                                onChange={this.update('firstName')}
+                                placeholder="First Name"
+                            />
+                            <br />
+                            <input type="text"
+                                value={this.state.lastName}
+                                onChange={this.update('lastName')}
+                                placeholder="Last Name"
+                            />
+                            <br />
+                            <input type="text"
+                                value={this.state.email}
+                                onChange={this.update('email')}
+                                placeholder="Email"
+                            />
+                            <br />
+                            <input type="password"
+                                value={this.state.password}
+                                onChange={this.update('password')}
+                                placeholder="Password"
+                            />
+                            <br />
+                            <input type="password"
+                                value={this.state.password2}
+                                onChange={this.update('password2')}
+                                placeholder="Confirm Password"
+                            />
+                            <br />
+                            <input type="submit" value="SUBMIT" />
+                            {this.renderErrors()}
+                        </div>
+                    </form>
+                    <div className="session-link">
+                        <span>Already have an account? </span>
+                        <Link to="/login">Login</Link>
                     </div>
-                </form>
+                </div>
             </div>
         );
     };
