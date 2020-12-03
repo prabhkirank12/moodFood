@@ -1,5 +1,6 @@
 import React from 'react';
 import { Redirect } from 'react-router-dom';
+import './dashboard.scss';
 
 const MOODS = [
     "Happy", 
@@ -31,20 +32,21 @@ class Dashboard extends React.Component {
     render() {
         if (this.state.currentMood) return <Redirect to="/map" />
         return (
-            <div>
+            <div className="moods">
                 <p>how are you feeling today?</p>
-
-                {MOODS.map( ( mood, i ) => (
-                    <button
-                        key={i}
-                        onClick={this.handleMood}
-                        value={mood}
-                    >
-                        {mood}
-                    </button>)
-                )}
+                <div className="single-mood">
+                    {MOODS.map( ( mood, i ) => (
+                        <button
+                            key={i}
+                            onClick={this.handleMood}
+                            value={mood}
+                            className={mood}
+                        >
+                            {mood}
+                        </button>)
+                    )}
+                </div>
                 
-                {/* <Map /> */}
             </div>
         );
     }
