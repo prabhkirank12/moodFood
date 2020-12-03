@@ -1,6 +1,5 @@
 import React from 'react';
 import { withRouter, Link } from 'react-router-dom';
-import './session.scss';
 
 class LoginForm extends React.Component {
     constructor(props) {

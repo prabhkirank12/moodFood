@@ -1,5 +1,5 @@
 import {connect} from 'react-redux';
-import {createMood} from '../../actions/mood_actions';
+import {createMood} from '../../../actions/mood_actions';
 import QuizForm from './quiz_form';
 
 const mapStateToProps = (state) => {

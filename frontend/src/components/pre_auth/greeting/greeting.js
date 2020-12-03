@@ -1,6 +1,5 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import '../session/session.scss';
 
 class Greeting extends React.Component {
     render() {

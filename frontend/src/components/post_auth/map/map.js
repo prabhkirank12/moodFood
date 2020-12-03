@@ -1,6 +1,6 @@
 import React from "react";
 import {connect} from "react-redux";
-import {fetchMapKey} from "../../util/map_api_util";
+import {fetchMapKey} from "../../../util/map_api_util";
 import "./map.scss";
 
 // const mapStateToProps = () => {
