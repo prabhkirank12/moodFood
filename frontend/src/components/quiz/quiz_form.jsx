@@ -69,11 +69,6 @@ class QuizForm extends React.Component {
     return null;
   }
 
-  componentDidMount() {
-    
-  }
-
-
   //handles the buttons the user selects on each mood page
   handleSelection(e) {
     e.preventDefault();
@@ -102,13 +97,22 @@ class QuizForm extends React.Component {
       }
     } else if (this.state.currentMood === 2) {
       mood = "Stressed";
-      submission = { [mood]: this.state.stressedSelection }
+      submission = { 
+        mood: mood,
+        foods: this.state.stressedSelection 
+      }
     } else if (this.state.currentMood === 3) {
       mood = "Sad";
-      submission = { [mood]: this.state.sadSelection }
+      submission = { 
+        mood: mood,
+        foods: this.state.sadSelection
+      }
     } else {
       mood = "Overwhelmed";
-      submission = { [mood]: this.state.overwhelmedSelection }
+      submission = { 
+        mood: mood,
+        foods: this.state.overwhelmedSelection
+      }
     }
 
     console.log("submission")
