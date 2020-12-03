@@ -1,19 +1,26 @@
 import React from 'react';
-import { fetchRestaurant } from '../../actions/places_actions'
+import { Redirect } from 'react-router-dom';
+
 
 class Dashboard extends React.Component {
     constructor(props){
         super(props);
+        this.state = {
+            currentMood: ""
+        }
         this.handleMood = this.handleMood.bind(this);
     }
 
     handleMood(e){
         e.preventDefault();
         const { value } = e.target;
-        fetchRestaurant(value);
-        //make a container and pass fetchRestaurant to it
-        //handleMood will fetch restaurant and the restaurant will be in the state
-        //redirect to "/map" page
+        this.setState({
+            currentMood: value
+        })
+        
+        this.props.fetchRestaurant(value);
+        <Redirect to="/map" currentMood={this.state.currentMood} />
+
     }
 
     render() {
