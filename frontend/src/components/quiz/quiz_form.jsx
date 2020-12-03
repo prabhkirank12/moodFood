@@ -61,9 +61,13 @@ class QuizForm extends React.Component {
   get nextButton() {
     let currentMood = this.state.currentMood;
 
-    if (currentMood <= 4) {
+    if (currentMood < 4) {
       return (
         <button onClick={this._nextMood}>Submit this Mood</button>
+      )
+    } else if (currentMood >= 4) {
+      return(
+        <button onClick={this.handleSubmit}>Submit Quiz</button>
       )
     }
     return null;
@@ -73,11 +77,8 @@ class QuizForm extends React.Component {
   handleSelection(e) {
     e.preventDefault();
     const { name, value } = e.target;
-    console.log(value);
     const foods = this.state[name] ? [...this.state[name]] : [];
-    console.log(foods);
     foods.push(value);
-    console.log(foods)
     this.setState({
       [name]: foods,
     })
@@ -95,29 +96,31 @@ class QuizForm extends React.Component {
         mood: mood,
         foods: this.state.happySelection 
       }
+      this.props.processForm(submission);
     } else if (this.state.currentMood === 2) {
       mood = "Stressed";
       submission = { 
         mood: mood,
         foods: this.state.stressedSelection 
       }
+      this.props.processForm(submission);
     } else if (this.state.currentMood === 3) {
       mood = "Sad";
       submission = { 
         mood: mood,
         foods: this.state.sadSelection
       }
+      this.props.processForm(submission);
     } else {
       mood = "Overwhelmed";
       submission = { 
         mood: mood,
         foods: this.state.overwhelmedSelection
       }
+      this.props.processForm(submission);
+      this.props.history.push("/dashboard")
     }
-
-    console.log("submission")
-    console.log(submission);
-    this.props.processForm(submission);
+    
   }
 
   render() {
