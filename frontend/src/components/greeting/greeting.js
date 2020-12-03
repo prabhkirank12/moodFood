@@ -1,12 +1,16 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import '../session/session.scss';
 
 class Greeting extends React.Component {
     render() {
         return (
-            <div>
+            <div className="buttons-container">
                 <div className="buttons-login">
                     <Link to={'/login'}>Login</Link>
+                </div>
+                <div className="buttons-login">
+                    <Link to={'/signup'}>Sign Up</Link>
                 </div>
             </div>
         );
