@@ -5,7 +5,7 @@ const passport = require('passport');
 const axios = require("axios");
 const apiKey = require('../../config/keys').googleAPIKey;
 
-router.get("/",
+router.get("/restaurant",
     passport.authenticate("jwt", {session: false}),
     (req, res) => {
         const food = req.query.food.replace(" ", "%20");

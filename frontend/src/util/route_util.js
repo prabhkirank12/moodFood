@@ -14,7 +14,7 @@ const Auth = ({ component: Component, path, loggedIn, exact }) => (
 );
 
 const protectedMapStateToProps = state => {
-  const moods = state.session.user && state.session.user.moods && Object.keys(state.session.user.moods).length > 0;
+  const moods = state.session.user && state.session.user.moodsExist;
   return ({
     loggedIn: state.session.isAuthenticated,
     moods,
