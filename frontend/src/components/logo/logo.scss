@@ -1,18 +1,39 @@
+$circle-radius: 11px;
+
 .logo-container {
     position: relative;
+    span {
+        font-size: 48px;
+        font-family: 'Teko', sans-serif;
+        display: inline-block;
+        line-height: 44px;
+    }
 }
 
 .circle {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
-    background-color: white;
+    background-color: transparent;
     position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: transalte(-50%, -50%);
-    height: 100px;
-    width: 200px;
-    border-radius: 150px 150px 0 0;
-    border: 1px solid black;
+    height: $circle-radius;
+    width: calc(2 * #{$circle-radius});
+}
+
+.circle.down {
+    left: 37px;
+    top: 35px;
+    border-top: 3px solid black;
+    border-right: 3px solid black;
+    border-left: 3px solid black;
+    border-radius: calc(1.5 * #{$circle-radius}) calc(1.5 * #{$circle-radius}) 0 0;
+}
+
+.circle.up {
+    top: 36px;
+    left: 107px;
+    border-bottom: 3px solid black;
+    border-right: 3px solid black;
+    border-left: 3px solid black;
+    border-radius: 0 0 calc(1.5 * #{$circle-radius}) calc(1.5 * #{$circle-radius});
 }
