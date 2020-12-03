@@ -8,3 +8,4 @@ export default props => (
         <div className="circle up"></div>
     </div>
 )
+
