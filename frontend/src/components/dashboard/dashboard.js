@@ -1,4 +1,5 @@
 import React from 'react';
+import Map from "../map/map";
 
 class Dashboard extends React.Component {
     render() {
@@ -11,6 +12,7 @@ class Dashboard extends React.Component {
                 <button>Overwhelmed</button>
                 <button>Hangry</button>
                 <button>Adventurous</button>
+                <Map />
             </div>
         );
     }
