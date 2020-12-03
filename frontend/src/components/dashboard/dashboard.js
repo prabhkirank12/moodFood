@@ -23,7 +23,6 @@ class Dashboard extends React.Component {
 
     handleMood(e){
         e.preventDefault();
-        debugger;
         const { value } = e.target;
         this.setState({
             currentMood: value

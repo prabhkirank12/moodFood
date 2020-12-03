@@ -24,6 +24,6 @@ export const fetchRestaurant = mood => dispatch => {
       const lon = pos.coords.longitude;
       const location = lat + "," + lon;
       axios.get(`/api/third-party/restaurant?location=${location}&mood=${mood}&radius=${radius}`)
-        .then( place => dispatch(receivePlace(place)));
+        .then( place => dispatch(receivePlace(place.data)));
   })
 };
