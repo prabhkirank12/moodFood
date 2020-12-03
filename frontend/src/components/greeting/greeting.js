@@ -5,8 +5,8 @@ class Greeting extends React.Component {
     render() {
         return (
             <div>
-                <div>
-                    <p>welcome to moodfood</p>
+                <div className="buttons-login">
+                    <Link to={'/login'}>Login</Link>
                 </div>
             </div>
         );

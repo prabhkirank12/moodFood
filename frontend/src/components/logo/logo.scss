@@ -2,6 +2,9 @@ $circle-radius: 11px;
 
 .logo-container {
     position: relative;
+    border: 1px solid red;
+    width: 155px;
+    margin: 0 auto;
     span {
         font-size: 48px;
         font-family: 'Teko', sans-serif;
@@ -10,17 +13,17 @@ $circle-radius: 11px;
     }
     animation-name: logo;
     // animation-timing-function: linear;
-    animation-duration: 5s;
-    animation-iteration-count: infinite;
-    animation-direction: alternate-reverse;
+    // animation-duration: 5s;
+    // animation-iteration-count: infinite;
+    // animation-direction: alternate-reverse;
 
-    @keyframes logo{
-        0% {left: 0px; top: 0px;}
-        25% {left: 20px; top: 0px;}
-        50% {left: 20px; top: 20px;}
-        75% {left: 0px; top: 20px;}
-        100% {left: 0px; top: 0px;}
-    }
+    // @keyframes logo{
+    //     0% {left: 0px; top: 0px;}
+    //     25% {left: 20px; top: 0px;}
+    //     50% {left: 20px; top: 20px;}
+    //     75% {left: 0px; top: 20px;}
+    //     100% {left: 0px; top: 0px;}
+    // }
 }
 
 .circle {
