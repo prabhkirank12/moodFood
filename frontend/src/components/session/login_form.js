@@ -1,5 +1,6 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
+import './login.scss';
 
 class LoginForm extends React.Component {
     constructor(props) {
@@ -14,8 +15,6 @@ class LoginForm extends React.Component {
         this.handleSubmit = this.handleSubmit.bind(this);
         this.renderErrors = this.renderErrors.bind(this);
     };
-
-
 
     update(field) {
         return e => this.setState({
@@ -47,8 +46,9 @@ class LoginForm extends React.Component {
 
     render() {
         return (
-            <div>
-                <form onSubmit={this.handleSubmit}>
+            <div class="login-container">
+                <div>
+                <form onSubmit={this.handleSubmit} class="login-form-box">
                     <div>
                         <input type="text" 
                             value={this.state.email}
@@ -66,6 +66,7 @@ class LoginForm extends React.Component {
                         {this.renderErrors()}         
                     </div>
                 </form>
+                </div>
             </div>
         );
     };

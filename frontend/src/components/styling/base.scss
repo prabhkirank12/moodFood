@@ -1,0 +1,163 @@
+.Adventurous {
+    
+    .background-color-light {
+        background-color: #7A80FF;
+        color: #531C92;
+    }
+
+    button {
+        border: 2px solid #531C92; 
+        background-color: #F7F7F7;
+        color: #7A80FF; 
+    }
+
+    button:hover {
+        border: 2px solid #531C92; 
+        background-color: #F7F7F7;
+        color: #531C92; 
+    }
+
+    button:focus {
+        border: 2px solid #531C92; 
+        background-color: #531C92; 
+        color: #7A80FF; 
+    }
+}
+
+.Happy {
+
+    .background-color-light {
+        background-color: #FFE381;
+        color: #FEAB03;
+    }
+
+    button {
+        border: 2px solid #FEAB03; 
+        background-color: #F7F7F7;
+        color: #FFE381; 
+    }
+
+    button:hover {
+        border: 2px solid #FEAB03; 
+        background-color: #F7F7F7;
+        color: #FEAB03; 
+    }
+
+    button:focus {
+        border: 2px solid #FEAB03; 
+        background-color: #FEAB03; 
+        color: #FFE381; 
+    }
+}
+
+.Sad {
+
+    .background-color-light {
+        background-color: #06B8D9;
+        color: #056193;
+    }
+
+    button {
+        border: 2px solid #056193; 
+        background-color: #F7F7F7;
+        color: #06B8D9; 
+    }
+
+    button:hover {
+        border: 2px solid #056193; 
+        background-color: #F7F7F7;
+        color: #056193; 
+    }
+
+    button:focus {
+        border: 2px solid #056193; 
+        background-color: #056193; 
+        color: #06B8D9; 
+    }
+}
+
+.Overwhelmed {
+
+    .background-color-light {
+        background-color: #DEC3DC;
+        color: #C370C0;
+    }
+
+    button {
+        border: 2px solid #C370C0; 
+        background-color: #F7F7F7;
+        color: #DEC3DC; 
+    }
+
+    button:hover {
+        border: 2px solid #C370C0; 
+        background-color: #F7F7F7;
+        color: #C370C0; 
+    }
+
+    button:focus {
+        border: 2px solid #C370C0; 
+        background-color: #C370C0; 
+        color: #DEC3DC; 
+    }
+}
+
+.Stressed {
+
+    .background-color-light {
+        background-color: #A5EBC8;
+        color: #36B37E;
+    }
+
+    button {
+        border: 2px solid #36B37E; 
+        background-color: #F7F7F7;
+        color: #A5EBC8; 
+    }
+
+    button:hover {
+        border: 2px solid #36B37E; 
+        background-color: #F7F7F7;
+        color: #36B37E; 
+    }
+
+    button:focus {
+        border: 2px solid #36B37E; 
+        background-color: #36B37E; 
+        color: #A5EBC8; 
+    }
+}
+
+.Hangry {
+
+    .background-color-light {
+        background-color: #FF9073;
+        color: #DE360D;
+    }
+
+    button {
+        border: 2px solid #DE360D; 
+        background-color: #F7F7F7;
+        color: #FF9073; 
+    }
+
+    button:hover {
+        border: 2px solid #DE360D; 
+        background-color: #F7F7F7;
+        color: #DE360D; 
+    }
+
+    button:focus {
+        border: 2px solid #DE360D; 
+        background-color: #DE360D; 
+        color: #FF9073; 
+    }
+}
+
+.site-background-dark {
+    background-color: #222223;
+}
+
+.site-background-light {
+    background-color: #3B3B3B;
+}
