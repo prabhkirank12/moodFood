@@ -1,5 +1,6 @@
 import React from "react";
 import {connect} from "react-redux";
+import {fetchMapKey} from "../../util/map_api_util";
 import "./map.scss";
 
 const mapStateToProps = () => {
@@ -33,6 +34,12 @@ const mapStateToProps = () => {
     })
 }
 
+// const mapDispatchToProps = () => {
+//     return {
+//         fetchMapKey: () => dispatchEvent(fetchMapKey())
+//     }
+// }
+
 class Map extends React.Component {
 
     initMap() {
@@ -52,6 +59,14 @@ class Map extends React.Component {
     }
 
     componentDidMount() {
+        fetchMapKey()
+            .then((mapKey) => {
+                    const script = document.createElement('script');
+                    script.src = `https://maps.googleapis.com/maps/api/js?key=${mapKey}`;
+                    document.head.appendChild(script);
+                    eval($(script).text());
+                }
+            )
         this.initMap();
     }
 

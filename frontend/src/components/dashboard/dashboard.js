@@ -20,7 +20,7 @@ class Dashboard extends React.Component {
         })
         
         this.props.fetchRestaurant(value);
-        <Redirect to="/map" currentMood={this.state.currentMood} />
+        // <Redirect to="/map" currentMood={this.state.currentMood} />
 
     }
 
