@@ -22,10 +22,10 @@ body {
     height: auto;
     margin: 0 auto;
     padding: 50px 0;
-    background-color: $over-light;
+    background-color: $happy-light;
     border-radius: 25px;
-    // -webkit-box-shadow: 0 0 10px $overdark;
-    box-shadow: 0 4px 8px 0 $over-dark, 0 6px 20px 0 $over-dark;
+    // -webkit-box-shadow: 0 0 10px $happydark;
+    box-shadow: 0 4px 8px 0 $happy-dark, 0 6px 20px 0 $happy-dark;
 }
 
 .session-form-box {
@@ -42,7 +42,6 @@ body {
 }
 
 .session-link{
-    border: 1px solid green;
     display: flex;
     flex-direction: column;
     margin: 0 auto;
@@ -64,7 +63,7 @@ input[type=text], input[type=password]{
 }
 
 input[type=text]::-webkit-input-placeholder, input[type=password]::-webkit-input-placeholder {
-    color: $over-dark;
+    color: $happy-dark;
     text-align: center;
     font-family: 'Poppins', sans-serif;
 }
@@ -73,7 +72,7 @@ input[type=submit] {
     margin: 0 auto;
     display: block;
     // margin-top: px;
-    background-color: $over-dark;
+    background-color: $happy-dark;
     border: none;
     border-radius: 6px;
     padding: 5px;
@@ -82,7 +81,6 @@ input[type=submit] {
     color: $off-white;
     font-family: 'Poppins', sans-serif;
 }
-
 
 // input[type=text]:focus, input[type=password]:focus{
 //     // outline: 2px solid $over-dark !important;
