@@ -13,12 +13,19 @@ router.post("/new",
             console.log(errors);
             return res.status(400).json(errors)
         }
-
         const user = req.user;
         const mood = req.body.mood;
         const foods = req.body.foods;
+
+        let moodsExist;
+        if (foods.length > 0) {
+            moodsExist = true;
+        } else {
+            moodsExist = Object.keys(user.moods).length > 0;
+        }
+
         user.moods.set(mood, foods);
-        user.save().then(user => res.json(user));
+        user.save().then(() => res.json({moodsExist}));
     }
 )
 
