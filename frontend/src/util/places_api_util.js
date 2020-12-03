@@ -8,6 +8,7 @@ export const fetchRestaurants = food => {
       const lat = pos.coords.latitude;
       const lon = pos.coords.longitude;
       const location = lat + "," + lon;
-      return axios.get(`/api/third-party?location=${location}&food=${food}&radius=${radius}`);
+      axios.get(`/api/third-party?location=${location}&food=${food}&radius=${radius}`)
+        .then( r => console.log(r));
   })
 };

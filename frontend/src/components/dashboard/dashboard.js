@@ -1,6 +1,7 @@
 import React from 'react';
 import { Redirect } from 'react-router-dom';
 
+import Map from "../map/map";
 
 class Dashboard extends React.Component {
     constructor(props){
@@ -33,6 +34,7 @@ class Dashboard extends React.Component {
                 <button onClick={this.handleMood}>Overwhelmed</button>
                 <button onClick={this.handleMood}>Hangry</button>
                 <button onClick={this.handleMood}>Adventurous</button>
+                <Map />
             </div>
         );
     }
