@@ -1,10 +1,10 @@
 import React from 'react';
 import { withRouter, Switch, Route } from 'react-router-dom';
-import Greeting from '../greeting/greeting';
+import Greeting from './greeting/greeting';
 import LoginFormContainer from './login/login_form_container';
 import SignupFormContainer from './signup/signup_form_container';
 import Logo from './logo/logo';
-import '../session/session.scss';
+import './pre-auth.scss';
 
 const App = () => (
     <div>
