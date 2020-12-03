@@ -19,11 +19,11 @@ const receiveMoodsExist = moodsExist => {
 
 export const createMood = (moodData) => (dispatch) => {
   return APIUtil.createMood(moodData)
-    .then((newMood) => dispatch(receiveUserMood(newMood)));
+    .then((moodsExist) => dispatch(receiveMoodsExist(moodsExist.data)));
 }
 
 
-export const fetchMoodsExist = () => (dispatch) => {
-  return APIUtil.fetchMoodsExist()
-    .then((moodsExist) => dispatch(receiveMoodsExist()));
-}
+// export const fetchMoodsExist = () => (dispatch) => {
+//   return APIUtil.fetchMoodsExist()
+//     .then((moodsExist) => dispatch(receiveMoodsExist(moodsExist.data)));
+// }

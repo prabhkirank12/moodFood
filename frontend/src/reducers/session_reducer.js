@@ -36,7 +36,7 @@ const sessionReducer = (state = defaultState, action) => {
       newState.user.moods = action.newMood.data.moods;
       return newState;
     case RECEIVE_MOODS_EXIST:
-      newState.user.moodsExist = action.moodsExist;
+      newState.user.moodsExist = action.moodsExist.moodsExist;
       return newState;
     case RECEIVE_PLACE:
       newState.user.place = action.place;
