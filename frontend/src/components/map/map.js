@@ -34,9 +34,11 @@ import "./map.scss";
 //     })
 // }
 
-const mapStateToProps = state => ({
-    restaurant: state.session.user.place,
-})
+const mapStateToProps = state => {
+    return {
+        restaurant: state.session.user.place,
+    }
+}
 
 // const mapDispatchToProps = () => {
 //     return {
@@ -93,9 +95,17 @@ class Map extends React.Component {
     }
 
     render() {
+        const { restaurant } = this.props;
         return (
-            <div id="map-container" ref="map">
-
+            <div>
+                <div id="map-container" ref="map">
+                </div>
+                    <div>
+                        {restaurant.name}
+                    </div>
+                    <div>
+                        {restaurant.vicinity}
+                    </div>
             </div>
         )
     }
