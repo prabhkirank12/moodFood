@@ -46,7 +46,7 @@ router.post('/register', (req, res) => {
             newUser.password = hash;
             newUser.save()
               .then(user => {
-                const payload = {id: user.id, email: user.email, firstName: user.firstName, lastName: user.lastName, mapsAPIKey: keys.mapsAPIKey};
+                const payload = {id: user.id, email: user.email, firstName: user.firstName, lastName: user.lastName, moodsExist: false, mapsAPIKey: keys.mapsAPIKey};
 
                 jwt.sign(
                     payload,
@@ -87,7 +87,8 @@ router.post("/login", (req, res) => {
             bcrypt.compare(password, user.password)
                 .then(isMatch => {
                     if (isMatch) {
-                        const payload = {id: user.id, email: user.email, firstName: user.firstName, lastName: user.lastName, moods: user.moods, mapsAPIKey: keys.mapsAPIKey}
+                        moodsExist = user.moods.size > 0;
+                        const payload = {id: user.id, email: user.email, firstName: user.firstName, lastName: user.lastName, moodsExist, mapsAPIKey: keys.mapsAPIKey}
 
                         jwt.sign(
                             payload,

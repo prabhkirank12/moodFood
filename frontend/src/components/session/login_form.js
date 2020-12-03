@@ -1,6 +1,6 @@
 import React from 'react';
-import { withRouter } from 'react-router-dom';
-import './login.scss';
+import { withRouter, Link } from 'react-router-dom';
+import './session.scss';
 
 class LoginForm extends React.Component {
     constructor(props) {
@@ -46,26 +46,30 @@ class LoginForm extends React.Component {
 
     render() {
         return (
-            <div className="login-container">
-                <div>
-                <form onSubmit={this.handleSubmit} className="login-form-box">
-                    <div>
-                        <input type="text" 
-                            value={this.state.email}
-                            onChange={this.update('email')}
-                            placeholder="Email"
-                        />
-                        <br/>
-                        <input type="password"
-                            value={this.state.password}
-                            onChange={this.update('password')}
-                            placeholder="Password"
-                        />              
-                        <br/>
-                        <input type="submit" value="Submit" />
-                        {this.renderErrors()}         
+            <div className="session-container">
+                <div className="form-container">
+                    <form onSubmit={this.handleSubmit} className="session-form-box">
+                        <div>
+                            <input type="text" 
+                                value={this.state.email}
+                                onChange={this.update('email')}
+                                placeholder="Email"
+                            />
+                            <br/>
+                            <input type="password"
+                                value={this.state.password}
+                                onChange={this.update('password')}
+                                placeholder="Password"
+                            />              
+                            <br/>
+                            <input type="submit" value="SUBMIT" />
+                            {this.renderErrors()}         
+                        </div>
+                    </form>
+                    <div className="session-link">
+                        <span>New to moodfood? </span>
+                        <Link to="/signup">Create an account.</Link>
                     </div>
-                </form>
                 </div>
             </div>
         );
