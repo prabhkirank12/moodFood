@@ -1,0 +1,26 @@
+.session-container {
+    border: 1px solid red;
+}
+
+.session-form-box {
+    border: 1px solid blue;
+    margin: 0 auto;
+    justify-content: center;
+    height: auto;
+    width: 300px;
+    display: flex;
+}
+
+.buttons-login {
+    margin: 0 auto;
+}
+
+.session-link{
+    border: 1px solid green;
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+    width: 250px;
+    align-items: center;
+}
+

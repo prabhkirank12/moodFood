@@ -1,6 +1,6 @@
 import React from 'react';
-import { withRouter } from 'react-router-dom';
-import './login.scss';
+import { withRouter, Link } from 'react-router-dom';
+import './session.scss';
 
 class LoginForm extends React.Component {
     constructor(props) {
@@ -46,9 +46,8 @@ class LoginForm extends React.Component {
 
     render() {
         return (
-            <div class="login-container">
-                <div>
-                <form onSubmit={this.handleSubmit} class="login-form-box">
+            <div className="session-container">
+                <form onSubmit={this.handleSubmit} className="session-form-box">
                     <div>
                         <input type="text" 
                             value={this.state.email}
@@ -66,6 +65,9 @@ class LoginForm extends React.Component {
                         {this.renderErrors()}         
                     </div>
                 </form>
+                <div className="session-link">
+                    <span>New to moodfood? </span>
+                    <Link to="/signup">Create an account.</Link>
                 </div>
             </div>
         );
