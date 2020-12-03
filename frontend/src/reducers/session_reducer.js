@@ -33,7 +33,9 @@ const sessionReducer = (state = defaultState, action) => {
         user: action.currentUser
       }
     case RECEIVE_USER_MOOD:
-      newState.user.moods = action.newMood.data;
+      console.log(action.newMood)
+      console.log(action.newMood.data)
+      newState.user.moods = action.newMood.data.moods;
       return newState;
     default:
       return state;
