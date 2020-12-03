@@ -1,5 +1,6 @@
 const Validator = require("validator");
 const validText = require("./valid-text");
+
 const MOODS = [
     "Happy", 
     "Stressed", 
@@ -16,7 +17,7 @@ const FOODS = [
     "Indian",
     "Chinese",
     "American",
-    "Desserts",
+    "Dessert",
     "Thai",
     "Fast Food",
     "Seafood",
@@ -37,6 +38,7 @@ module.exports = function(data) {
 
 function validateMood(mood) {
     let errors = {};
+    console.log(mood);
 
     mood = validText(mood) ? mood : "";
 

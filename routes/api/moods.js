@@ -9,6 +9,8 @@ router.post("/new",
         const { errors, isValid } = validateMoods(req.body);
         
         if (!isValid) {
+            console.log(req.body)
+            console.log(errors);
             return res.status(400).json(errors)
         }
 

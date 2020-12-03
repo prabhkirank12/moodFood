@@ -69,17 +69,15 @@ class QuizForm extends React.Component {
     return null;
   }
 
-  componentDidMount() {
-    
-  }
-
-
   //handles the buttons the user selects on each mood page
   handleSelection(e) {
     e.preventDefault();
     const { name, value } = e.target;
-    const foods = this.state.name ? [...this.state[name]] : [];
+    console.log(value);
+    const foods = this.state[name] ? [...this.state[name]] : [];
+    console.log(foods);
     foods.push(value);
+    console.log(foods)
     this.setState({
       [name]: foods,
     })
@@ -89,18 +87,46 @@ class QuizForm extends React.Component {
   //need to pass in processForm through the container
   handleSubmit(e) {
     e.preventDefault();
-    this.props.processForm(this.state);
+    let mood;
+    let submission;
+    if (this.state.currentMood === 1) {
+      mood = "Happy";
+      submission = { 
+        mood: mood,
+        foods: this.state.happySelection 
+      }
+    } else if (this.state.currentMood === 2) {
+      mood = "Stressed";
+      submission = { 
+        mood: mood,
+        foods: this.state.stressedSelection 
+      }
+    } else if (this.state.currentMood === 3) {
+      mood = "Sad";
+      submission = { 
+        mood: mood,
+        foods: this.state.sadSelection
+      }
+    } else {
+      mood = "Overwhelmed";
+      submission = { 
+        mood: mood,
+        foods: this.state.overwhelmedSelection
+      }
+    }
+
+    console.log("submission")
+    console.log(submission);
+    this.props.processForm(submission);
   }
 
   render() {
-
-    const {currentUser, moods} = this.props;
-    console.log(moods);
+    
       return (
 
       <div>
         <h1>Mood Quiz</h1>
-        <form onSubmit={this.handleSubmit}>
+        <form>
           <HappyMood
             currentMood={this.state.currentMood}
             handleSelection={this.handleSelection}
