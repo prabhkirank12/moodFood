@@ -1,0 +1,36 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap');
+@import "../"
+
+.moods {
+    border: 2px solid pink;
+    margin: 0 auto;
+    width: 500px;
+
+    p {
+        font-size: 30px;
+        text-align: center;
+        font-family: 'Poppins', sans-serif;
+        color: $off-white;
+    }
+
+    button{
+        border: none;
+        margin: 10px;
+        height: 100px; 
+        width: 180px; 
+        font-family: 'Poppins', sans-serif;
+        font-size: 22px; 
+        border-radius: 6px;
+    }
+}
+
+.single-mood{
+    border: 2px solid red;
+    display: flex;
+    flex-wrap: wrap;
+    width: 400px;
+    margin: 0 auto;
+    padding: 15px;
+}
+
+
