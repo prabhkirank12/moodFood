@@ -1,0 +1,59 @@
+@import '../../styling/base.scss';
+
+$circle-radius: 33px;
+
+.pre-auth-logo-container {
+    position: relative;
+    top: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 200px;
+    color: $happy-dark;
+    span {
+        font-size: 120px;
+        font-family: 'Teko', sans-serif;
+        line-height: 60px;
+    }
+    animation-name: logo;
+    // animation-timing-function: linear;
+    // animation-duration: 5s;
+    // animation-iteration-count: infinite;
+    // animation-direction: alternate-reverse;
+
+    // @keyframes logo{
+    //     0% {left: 0px; top: 0px;}
+    //     25% {left: 20px; top: 0px;}
+    //     50% {left: 20px; top: 20px;}
+    //     75% {left: 0px; top: 20px;}
+    //     100% {left: 0px; top: 0px;}
+    // }
+}
+
+.pre-auth-circle {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    background-color: transparent;
+    position: relative;
+    height: $circle-radius;
+    width: calc(2 * #{$circle-radius});
+}
+
+.pre-auth-circle.down {
+    left: 86px;
+    top: 0;
+    border-top: 9px solid $off-white;
+    border-right: 9px solid $off-white;
+    border-left: 9px solid $off-white;
+    border-radius: calc(1.5 * #{$circle-radius}) calc(1.5 * #{$circle-radius}) 0 0;
+}
+
+.pre-auth-circle.up {
+    top: -33px;
+    left: 260px;
+    border-bottom: 9px solid $off-white;
+    border-right: 9px solid $off-white;
+    border-left: 9px solid $off-white;
+    border-radius: 0 0 calc(1.5 * #{$circle-radius}) calc(1.5 * #{$circle-radius});
+}
