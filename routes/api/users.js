@@ -88,8 +88,6 @@ router.post("/login", (req, res) => {
                 .then(isMatch => {
                     if (isMatch) {
                         moodsExist = Object.keys(user.moods).length > 0;
-                        console.log(user.moods);
-                        console.log(Object.keys(user.moods));
                         const payload = {id: user.id, email: user.email, firstName: user.firstName, lastName: user.lastName, moodsExist, mapsAPIKey: keys.mapsAPIKey}
 
                         jwt.sign(

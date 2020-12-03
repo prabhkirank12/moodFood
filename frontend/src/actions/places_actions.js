@@ -1,4 +1,3 @@
-import * as PlacesUtil from '../util/places_api_util';
 import axios from "axios";
 
 export const RECEIVE_PLACE = "RECEIVE_PLACE";
@@ -24,7 +23,7 @@ export const fetchRestaurant = mood => dispatch => {
       const lat = pos.coords.latitude;
       const lon = pos.coords.longitude;
       const location = lat + "," + lon;
-      axios.get(`/api/third-party?location=${location}&mood=${mood}&radius=${radius}`)
-        .then( place => console.log(place));
+      axios.get(`/api/third-party/restaurant?location=${location}&mood=${mood}&radius=${radius}`)
+        .then( place => dispatch(receivePlace(place)));
   })
 };

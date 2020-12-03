@@ -3,6 +3,15 @@ import { Redirect } from 'react-router-dom';
 
 import Map from "../map/map";
 
+const MOODS = [
+    "Happy", 
+    "Stressed", 
+    "Sad",
+    "Overwhelmed",
+    "Hangry",
+    "Adventurous",
+];
+
 class Dashboard extends React.Component {
     constructor(props){
         super(props);
@@ -14,6 +23,7 @@ class Dashboard extends React.Component {
 
     handleMood(e){
         e.preventDefault();
+        debugger;
         const { value } = e.target;
         this.setState({
             currentMood: value
@@ -28,12 +38,17 @@ class Dashboard extends React.Component {
         return (
             <div>
                 <p>how are you feeling today?</p>
-                <button onClick={this.handleMood}>Happy</button>
-                <button onClick={this.handleMood}>Stressed</button>
-                <button onClick={this.handleMood}>Sad</button>
-                <button onClick={this.handleMood}>Overwhelmed</button>
-                <button onClick={this.handleMood}>Hangry</button>
-                <button onClick={this.handleMood}>Adventurous</button>
+
+                {MOODS.map( ( mood, i ) => (
+                    <button
+                        key={i}
+                        onClick={this.handleMood}
+                        value={mood}
+                    >
+                        {mood}
+                    </button>)
+                )}
+                
                 <Map />
             </div>
         );
