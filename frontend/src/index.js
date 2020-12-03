@@ -14,12 +14,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const decodedUser = jwt_decode(localStorage.jwtToken);
 
-    //initialize google maps api
-    const script = document.createElement('script');
-    script.src = `https://maps.googleapis.com/maps/api/js?key=${decodedUser.mapsAPIKey}`;
-    document.head.appendChild(script);
+    // //initialize google maps api
+    // const script = document.createElement('script');
+    // script.src = `https://maps.googleapis.com/maps/api/js?key=${decodedUser.mapsAPIKey}`;
+    // document.head.appendChild(script);
 
-    delete decodedUser.mapsAPIKey;
+    // delete decodedUser.mapsAPIKey;
 
     const preloadedState = { session: {
       isAuthenticated: true,
