@@ -8,7 +8,6 @@
     right: 0;
     top: 200px;
     bottom: 0;
-    // border: 1px solid red;
     margin: auto;
 }
 
@@ -37,8 +36,30 @@ body {
     display: flex;
 }
 
+.buttons-container {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 200px;
+    bottom: 0;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    width: 200px;
+    border: 1px solid blue;
+}
+
 .buttons-login {
+    border: 1px solid green;
     margin: 0 auto;
+    width: 100px;
+    height: 30px;
+}
+
+a {
+    border: 1px solid red;
+    // justify-content: center;
+    // margin-bottom: 10px;
 }
 
 .session-link{
@@ -47,9 +68,20 @@ body {
     margin: 0 auto;
     width: 200px;
     align-items: center;
-    margin-top: 17px;
+    margin-top: 25px;
     font-family: 'Poppins', sans-serif;
     font-size: 14px;
+    color: $dark-gray;
+
+    a {
+        text-decoration: underline;
+        color: $dark-gray;
+    }
+
+    a:hover {
+        text-decoration: underline;
+        color: $happy-dark;
+    }
 }
 
 input[type=text], input[type=password]{
@@ -89,8 +121,3 @@ input[type=submit] {
     color: $off-white;
     font-family: 'Poppins', sans-serif;
 }
-
-// input[type=text]:focus, input[type=password]:focus{
-//     // outline: 2px solid $over-dark !important;
-//     // outline-radius: 6px;
-// }
