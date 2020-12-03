@@ -1,8 +1,6 @@
 import React from 'react';
 import { Redirect } from 'react-router-dom';
 
-import Map from "../map/map";
-
 const MOODS = [
     "Happy", 
     "Stressed", 
@@ -24,16 +22,14 @@ class Dashboard extends React.Component {
     handleMood(e){
         e.preventDefault();
         const { value } = e.target;
+        this.props.fetchRestaurant(value);
         this.setState({
             currentMood: value
         })
-        
-        this.props.fetchRestaurant(value);
-        <Redirect to="/map" currentMood={this.state.currentMood} />
-
     }
 
     render() {
+        if (this.state.currentMood) return <Redirect to="/map" />
         return (
             <div>
                 <p>how are you feeling today?</p>
@@ -48,7 +44,7 @@ class Dashboard extends React.Component {
                     </button>)
                 )}
                 
-                <Map />
+                {/* <Map /> */}
             </div>
         );
     }
