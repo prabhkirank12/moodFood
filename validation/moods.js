@@ -38,7 +38,6 @@ module.exports = function(data) {
 
 function validateMood(mood) {
     let errors = {};
-    console.log(mood);
 
     mood = validText(mood) ? mood : "";
 

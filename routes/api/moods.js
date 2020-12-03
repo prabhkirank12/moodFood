@@ -9,8 +9,6 @@ router.post("/new",
         const { errors, isValid } = validateMoods(req.body);
         
         if (!isValid) {
-            console.log(req.body)
-            console.log(errors);
             return res.status(400).json(errors)
         }
         const user = req.user;
@@ -21,7 +19,7 @@ router.post("/new",
         if (foods.length > 0) {
             moodsExist = true;
         } else {
-            moodsExist = Object.keys(user.moods).length > 0;
+            moodsExist = user.moods.size > 0;
         }
 
         user.moods.set(mood, foods);
