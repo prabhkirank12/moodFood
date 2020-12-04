@@ -1,5 +1,27 @@
-// .buttons-login {
-//     margin: 0 auto;
-//     border: 1px solid red;
-//     width: 160px;
-// }
+@import "../../styling/base.scss";
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap');
+
+.logout-bttn{
+    margin-top: -40px;
+    margin-bottom: 140px;  
+}
+
+button.logout{
+        float: right;
+        color: $happy-light;
+        background-color: $happy-dark;
+        border: none;
+        width: 70px;
+        height: 30px;
+        font-family: 'Poppins', sans-serif;
+        border-radius: 6px;
+}
+
+button.logout:hover{
+    background-color: $happy-light;
+    color: $happy-dark;
+}
+
+.navbar-logo{
+    color: $off-white;
+}

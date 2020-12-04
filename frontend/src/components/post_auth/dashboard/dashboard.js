@@ -13,7 +13,7 @@ const MOODS = [
 
 const Dashboard = () => (
     <div className="moods">
-        <p>how are you feeling today?</p>
+        <p>How are you feeling today?</p>
         <div className="single-mood">
             {MOODS.map( ( mood, i ) => (
                 <Link to={`/map/${mood}`} key={i} className={mood}>
