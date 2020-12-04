@@ -11,8 +11,8 @@ class StressedMood extends React.Component {
     }
 
     return (
-      <div>
-        <h1>Stressed</h1>
+      <div className="select-container stressed">
+        <h1>STRESSED</h1>
         <div>
           <button name="stressedSelection" onClick={handleSelection} value="Italian">Italian</button>
           <button name="stressedSelection" onClick={handleSelection} value="Mexican">Mexican</button>

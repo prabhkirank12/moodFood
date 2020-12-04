@@ -3,13 +3,41 @@ const router = express.Router();
 const passport = require('passport');
 const validateMoods = require("../../validation/moods");
 
+const HANGRY = "Hangry";
+const ADVENTUROUS = "Adventurous";
+
+const MOODS = [
+    "Happy", 
+    "Stressed", 
+    "Sad",
+    "Overwhelmed",
+    HANGRY,
+    ADVENTUROUS,
+];
+
+const FOODS = [
+    "Italian",
+    "Mexican",
+    "Pizza",
+    "Japanese",
+    "Indian",
+    "Chinese",
+    "American",
+    "Dessert",
+    "Thai",
+    "Fast Food",
+    "Seafood",
+    "Vegetarian",
+];
+
 router.post("/new",
     passport.authenticate("jwt", {session: false}),
     (req, res) => {
         const { errors, isValid } = validateMoods(req.body);
         
         if (!isValid) {
-            return res.status(400).json(errors)
+            console.log(errors);
+            return res.status(400).json(errors);
         }
         const user = req.user;
         const mood = req.body.mood;
@@ -29,4 +57,4 @@ router.post("/new",
 
 
 
-module.exports = router;
+module.exports = {moods: router, MOODS: MOODS, FOODS, HANGRY, ADVENTUROUS};

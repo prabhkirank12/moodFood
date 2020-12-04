@@ -9,8 +9,8 @@ class SadMood extends React.Component {
         }
         
         return (
-            <div>
-                <h1>Sad</h1>
+            <div className="select-container sad">
+                <h1>SAD</h1>
                 <div>
                     <button name="sadSelection" onClick={handleSelection} value="Italian">Italian</button>
                     <button name="sadSelection" onClick={handleSelection} value="Mexican">Mexican</button>
