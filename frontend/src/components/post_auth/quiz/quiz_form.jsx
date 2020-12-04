@@ -52,7 +52,7 @@ class QuizForm extends React.Component {
 
     if (currentMood !== 1) {
       return (
-        <button onClick={this._prevMood}>Back</button>
+        <button class="next-bttn" onClick={this._prevMood}>Back</button>
       )
     }
     return null;
@@ -63,11 +63,11 @@ class QuizForm extends React.Component {
 
     if (currentMood < 4) {
       return (
-        <button onClick={this._nextMood}>Submit this Mood</button>
+        <button class="next-bttn" onClick={this._nextMood}>Submit this Mood</button>
       )
     } else if (currentMood >= 4) {
       return(
-        <button onClick={this.handleSubmit}>Submit Quiz</button>
+        <button class="next-bttn" onClick={this.handleSubmit}>Submit Quiz</button>
       )
     }
     return null;
@@ -82,6 +82,8 @@ class QuizForm extends React.Component {
     this.setState({
       [name]: foods,
     })
+
+    e.target.classList.add("selected-button");
   }
 
   //processes the user's quiz (sends their choices to the backend)
@@ -127,8 +129,8 @@ class QuizForm extends React.Component {
     
       return (
 
-      <div>
-        <h1>Mood Quiz</h1>
+      <div className="quiz-container">
+        <h1>What do you like to eat when you're feeling...</h1>
         <form>
           <HappyMood
             currentMood={this.state.currentMood}
@@ -150,7 +152,7 @@ class QuizForm extends React.Component {
             handleSelection={this.handleSelection}
             overwhelmedSelection={this.state.overwhelmedSelection}
             />
-          <div>
+          <div class="next-bttn">
             {this.backButton}
             {this.nextButton}
           </div>

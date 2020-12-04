@@ -11,8 +11,8 @@ class OverwhelmedMood extends React.Component {
         }
 
         return (
-            <div>
-                <h1>Overwhelmed</h1>
+            <div className="select-container overwhelmed">
+                <h1>OVERWHELMED</h1>
                 <div>
                     <button name="overwhelmedSelection" onClick={handleSelection} value="Italian">Italian</button>
                     <button name="overwhelmedSelection" onClick={handleSelection} value="Mexican">Mexican</button>
