@@ -4,6 +4,7 @@
 #map-container {
     height: 500px;
     width: 500px;
+    border-radius: 6px;
 }
 
 .map-page {
@@ -14,11 +15,12 @@
     color: $off-white;
     margin-top: 60px;
     h2 {
-        font-size: 40px;
+        font-size: 36px;
     }
 
     h3 {
         font-size: 24px;
+        margin: 0px;
     }
     
 }

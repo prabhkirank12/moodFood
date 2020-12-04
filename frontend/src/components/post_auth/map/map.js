@@ -105,8 +105,6 @@ class Map extends React.Component {
         return (
             <div className="map-page">
                 <h2>The food for your mood is...</h2>
-                <div id="map-container" ref="map">
-                </div>
                     <div className="restaurant-details">
                         <div>
                             <h3>
@@ -119,9 +117,11 @@ class Map extends React.Component {
                             </h4>
                         </div>
                     </div>
-                    <div>
-                        {this.photos}
+                    <div id="map-container" ref="map">
                     </div>
+                    {/* <div>
+                        {this.photos}
+                    </div> */}
             </div>
         )
     }
