@@ -12,6 +12,9 @@ class PostAuth extends React.Component {
     componentDidMount() {
         const body = document.getElementsByTagName('body')[0]
         body.classList.remove(...body.classList)
+        if (this.props.match.params.mood) {
+            body.classList.add(this.props.match.params.mood, 'background-color-light')
+        }
     }
 
     componentDidUpdate(prevProps) {
