@@ -10,12 +10,14 @@
     box-shadow: 0 4px 8px 0 $happy-dark, 0 6px 20px 0 $happy-dark;
 
     p {
-        padding-top: 8px;
+        padding-top: 30px;
         font-size: 30px;
         text-align: center;
         font-family: 'Poppins', sans-serif;
         color: $off-white;
-        font-weight: 700;
+        font-weight: 500;
+        margin-bottom: 0;
+        margin-top: 0;
     }
 
     a {
@@ -26,21 +28,26 @@
         font-family: 'Poppins', sans-serif;
         font-size: 22px; 
         border-radius: 6px;
+        text-decoration: none;
+        display: flex;
+        justify-content: center;
+        align-items: center;
     }
 }
 
 .single-mood{
+
     display: flex;
     flex-wrap: wrap;
     width: 500px;
-    margin: 0 auto;
+    margin: auto;
     padding: 20px;
 
     .Happy{
        background-color: $happy-light;
        color: $happy-dark;
     }
-    button.Happy:hover{
+    a.Happy:hover{
          background-color: $happy-dark;
             color:$happy-light; 
     }
@@ -50,7 +57,7 @@
         background-color: $stress-light;
        color: $stress-dark;  
     }
-    button.Stressed:hover{
+    a.Stressed:hover{
          background-color: $stress-dark;
             color:$stress-light; 
     }
@@ -59,7 +66,7 @@
         background-color: $sad-light;
         color: $sad-dark;
     }
-    button.Sad:hover{
+    a.Sad:hover{
          background-color: $sad-dark;
             color:$sad-light; 
     }
@@ -68,7 +75,7 @@
         background-color: $over-light;
         color: $over-dark;
     }
-    button.Overwhelmed:hover{
+    a.Overwhelmed:hover{
          background-color: $over-dark;
             color:$over-light; 
     }
@@ -77,7 +84,7 @@
         background-color: $hangry-light;
         color: $hangry-dark;
     }
-    button.Hangry:hover{
+    a.Hangry:hover{
          background-color: $hangry-dark;
             color:$hangry-light; 
     }
@@ -87,7 +94,7 @@
         color: $adv-dark;
     }
 
-    button.Adventurous:hover{
+    a.Adventurous:hover{
          background-color: $adv-dark;
             color:$adv-light; 
     }
