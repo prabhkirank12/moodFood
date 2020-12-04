@@ -11,7 +11,7 @@ const App = () => (
     <div>
         <Switch>
             <AuthRoute exact path={["/","/login","/signup"]} component={PreAuth} />
-            <SemiProtectedRoute exact path={["/quiz","/dashboard","/map"]} component={PostAuth} />
+            <SemiProtectedRoute path={["/quiz","/dashboard","/map/:mood"]} component={PostAuth} />
         </Switch>
     </div>
 );
