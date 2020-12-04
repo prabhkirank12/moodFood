@@ -17,7 +17,7 @@ class MapBuffer extends React.Component {
 
     componentDidMount() {
         this.props.fetchRestaurant(this.props.match.params.mood)
-        document.getElementsByTagName('body')[0].classList.add(this.props.match.params.mood, 'background-color-light')
+        
     }
 
     render() {

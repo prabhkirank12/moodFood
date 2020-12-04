@@ -52,7 +52,7 @@ class QuizForm extends React.Component {
 
     if (currentMood !== 1) {
       return (
-        <button class="next-bttn" onClick={this._prevMood}>Back</button>
+        <button className="next-bttn" onClick={this._prevMood}>Back</button>
       )
     }
     return null;
@@ -63,11 +63,11 @@ class QuizForm extends React.Component {
 
     if (currentMood < 4) {
       return (
-        <button class="next-bttn" onClick={this._nextMood}>Submit this Mood</button>
+        <button className="next-bttn" onClick={this._nextMood}>Submit this Mood</button>
       )
     } else if (currentMood >= 4) {
       return(
-        <button class="next-bttn" onClick={this.handleSubmit}>Submit Quiz</button>
+        <button className="next-bttn" onClick={this.handleSubmit}>Submit Quiz</button>
       )
     }
     return null;
@@ -152,7 +152,7 @@ class QuizForm extends React.Component {
             handleSelection={this.handleSelection}
             overwhelmedSelection={this.state.overwhelmedSelection}
             />
-          <div class="next-bttn">
+          <div className="next-bttn">
             {this.backButton}
             {this.nextButton}
           </div>

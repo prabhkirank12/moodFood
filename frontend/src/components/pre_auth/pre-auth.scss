@@ -58,7 +58,6 @@ body {
     margin-bottom: 15px;
     font-family: 'Poppins', sans-serif;
     box-shadow: 0 2px 2px 0 $happy-dark, 0 2px 10px 0 $happy-dark;
-
     a {
         display: flex;
         align-items: center;
@@ -136,4 +135,6 @@ input[type=submit] {
     width: 200px;
     color: $off-white;
     font-family: 'Poppins', sans-serif;
+    cursor: pointer;
+    outline: none;
 }

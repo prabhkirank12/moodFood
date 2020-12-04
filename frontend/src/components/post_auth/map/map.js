@@ -120,7 +120,7 @@ class Map extends React.Component {
                             </h4>
                         </div>
                     </div>
-                    <button>Button</button>
+                    
                     <div id="map-container" ref="map">
                     </div>
             </div>
