@@ -46,7 +46,7 @@ router.post('/register', (req, res) => {
             newUser.password = hash;
             newUser.save()
               .then(user => {
-                const payload = {id: user.id, email: user.email, firstName: user.firstName, lastName: user.lastName, moodsExist: false, mapsAPIKey: keys.mapsAPIKey};
+                const payload = {id: user.id, email: user.email, firstName: user.firstName, lastName: user.lastName, moodsExist: false,};
 
                 jwt.sign(
                     payload,
@@ -88,7 +88,7 @@ router.post("/login", (req, res) => {
                 .then(isMatch => {
                     if (isMatch) {
                         moodsExist = user.moods.size > 0;
-                        const payload = {id: user.id, email: user.email, firstName: user.firstName, lastName: user.lastName, moodsExist, mapsAPIKey: keys.mapsAPIKey}
+                        const payload = {id: user.id, email: user.email, firstName: user.firstName, lastName: user.lastName, moodsExist,}
 
                         jwt.sign(
                             payload,
