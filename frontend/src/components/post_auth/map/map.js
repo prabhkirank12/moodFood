@@ -34,9 +34,11 @@ import "./map.scss";
 //     })
 // }
 
-const mapStateToProps = state => {
+const mapStateToProps = (state, ownProps) => {
+    console.log(ownProps)
     return {
         restaurant: state.session.user.place,
+
     }
 }
 
@@ -101,14 +103,14 @@ class Map extends React.Component {
 
     render() {
         const { restaurant } = this.props;
-        
+        console.log(this.props);
         return (
-            <div className="map-page">
+            <div className={"map-page"}>
                 <h2>The food for your mood is...</h2>
                     <div className="restaurant-details">
                         <div>
                             <h3>
-                                {restaurant.name}
+                                {restaurant.type} at {restaurant.name}
                             </h3>
                         </div>
                         <div>
@@ -119,9 +121,6 @@ class Map extends React.Component {
                     </div>
                     <div id="map-container" ref="map">
                     </div>
-                    {/* <div>
-                        {this.photos}
-                    </div> */}
             </div>
         )
     }
