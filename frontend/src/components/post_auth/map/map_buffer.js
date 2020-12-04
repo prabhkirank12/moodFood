@@ -17,6 +17,7 @@ class MapBuffer extends React.Component {
 
     componentDidMount() {
         this.props.fetchRestaurant(this.props.match.params.mood)
+        
     }
 
     render() {

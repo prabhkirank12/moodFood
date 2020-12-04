@@ -1,5 +1,6 @@
 import React from "react";
 import {connect} from "react-redux";
+import {withRouter} from "react-router-dom";
 import {fetchMapKey} from "../../../util/map_api_util";
 import "./map.scss";
 
@@ -34,9 +35,11 @@ import "./map.scss";
 //     })
 // }
 
-const mapStateToProps = state => {
+const mapStateToProps = (state, ownProps) => {
+    console.log(ownProps)
     return {
         restaurant: state.session.user.place,
+        currentMood: ownProps.match.params.mood
     }
 }
 
@@ -48,24 +51,16 @@ const mapStateToProps = state => {
 
 class Map extends React.Component {
 
-    // initMap() {
-    //     const map = new window.google.maps.Map(document.getElementById("map-container"), {
-    //         center: this.props.restaurant.location,
-    //     })
-    //     map.fitBounds({
-    //         east: this.props.restaurant.geometry.viewport.northeast.lng,
-    //         north: this.props.restaurant.geometry.viewport.northeast.lat,
-    //         west: this.props.restaurant.geometry.viewport.southwest.lng,
-    //         south: this.props.restaurant.geometry.viewport.southwest.lat,
-    //     })
-    //     const marker = new window.google.maps.Marker({
-    //         position: this.props.restaurant.geometry.location,
-    //         map,
-    //     })
-    // }
+    constructor(props) {
+        super(props);
+        this.state = {
+            key : ""
+        }
+    }
 
     componentDidMount() {
         window.initMap = () => {
+                
                 const map = new window.google.maps.Map(document.getElementById("map-container"), {
                 center: this.props.restaurant.location,
             })
@@ -82,6 +77,7 @@ class Map extends React.Component {
         }
         fetchMapKey()
         .then((mapKey) => {
+            this.setState({key : mapKey.data})
             let script = document.getElementById("google-map-script");
             if (script) {
                 window.initMap();
@@ -94,21 +90,42 @@ class Map extends React.Component {
         })
     }
 
-    render() {
-        const { restaurant } = this.props;
+    get photos() {
+        if (this.props.restaurant.photos && this.state.key) {
+            return (<img src={`https://maps.googleapis.com/maps/api/place/photo?maxwidth=300&photoreference=${this.props.restaurant.photos[0].photo_reference}&key=${this.state.key}`} alt="restaurant image" />);
+            
+        }
         return (
-            <div>
-                <div id="map-container" ref="map">
-                </div>
-                    <div>
-                        {restaurant.name}
+            <></>
+        )
+
+        
+    }
+
+    render() {
+        const { restaurant, currentMood } = this.props;
+        
+        return (
+            <div className={currentMood + ' background-color-light' + ' map-page'}>
+                <h2>The food for your mood is...</h2>
+                    <div className="restaurant-details">
+                        <div>
+                            <h3>
+                                {restaurant.type} at {restaurant.name}
+                            </h3>
+                        </div>
+                        <div>
+                            <h4>
+                                {restaurant.vicinity}
+                            </h4>
+                        </div>
                     </div>
-                    <div>
-                        {restaurant.vicinity}
+                    
+                    <div id="map-container" ref="map">
                     </div>
             </div>
         )
     }
 }
 
-export default connect(mapStateToProps, null)(Map);
+export default withRouter(connect(mapStateToProps, null)(Map));

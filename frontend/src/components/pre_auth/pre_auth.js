@@ -6,15 +6,25 @@ import SignupFormContainer from './signup/signup_form_container';
 import Logo from './logo/logo';
 import './pre-auth.scss';
 
-const App = () => (
-    <div>
-        <Logo />
-        <Switch>
-            <Route exact path="/" component={Greeting} />
-            <Route exact path="/login" component={LoginFormContainer} />
-            <Route exact path="/signup" component={SignupFormContainer} />
-        </Switch>
-    </div>
-);
+class PreAuth extends React.Component {
 
-export default withRouter(App);
+    componentDidMount() {
+        const body = document.getElementsByTagName('body')[0]
+        body.classList.remove(...body.classList)
+    }
+
+    render() {
+        return (
+            <div>
+                <Logo />
+                <Switch>
+                    <Route exact path="/" component={Greeting} />
+                    <Route exact path="/login" component={LoginFormContainer} />
+                    <Route exact path="/signup" component={SignupFormContainer} />
+                </Switch>
+            </div>
+        );
+    }
+}
+
+export default withRouter(PreAuth);

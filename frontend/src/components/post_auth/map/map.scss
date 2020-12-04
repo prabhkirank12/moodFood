@@ -1,4 +1,33 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap');
+@import "../../styling/base.scss";
+
 #map-container {
     height: 500px;
     width: 500px;
+    border-radius: 6px;
+}
+
+.map-page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: 'Poppins', sans-serif;
+    color: $off-white;
+    font-weight: 400;
+    margin-top: 60px;
+    h2 {
+        font-size: 36px;
+    }
+
+    h3 {
+        font-size: 24px;
+        margin: 0px;
+    }
+    
+}
+
+.restaurant-details {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }

@@ -34,7 +34,7 @@ router.get("/restaurant",
             .then(resp => {
                 const results = resp.data.results;
                 const result = results[Math.floor(Math.random() * results.length)];
-                res.json(Object.assign({},result,{type: food}));
+                res.json(Object.assign({}, result, { type: food.replace("%20", " ")}));
             })
             .catch(err => console.log(err))
         } else {
@@ -45,7 +45,7 @@ router.get("/restaurant",
                 .then(resp => {
                     const results = resp.data.results;
                     const result = results[Math.floor(Math.random() * results.length)];
-                    res.json(Object.assign({},result,{type: food}));
+                    res.json(Object.assign({}, result, { type: food.replace("%20", " ")}));
                 })
                 .catch(err => console.log(err))
         }

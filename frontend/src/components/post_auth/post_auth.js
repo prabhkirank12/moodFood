@@ -7,15 +7,37 @@ import NavBarContainer from './navbar/navbar_container';
 import QuizFormContainer from './quiz/quiz_form_container';
 import MapBuffer from "./map/map_buffer";
 
-const App = () => (
-    <div>
-        <NavBarContainer />
-        <Switch>
-            <Route exact path="/quiz" component={QuizFormContainer} />
-            <ProtectedRoute exact path="/dashboard" component={Dashboard} />
-            <ProtectedRoute path="/map/:mood" component={MapBuffer} />
-        </Switch>
-    </div>
-);
+class PostAuth extends React.Component {
 
-export default withRouter(App);
+    componentDidMount() {
+        const body = document.getElementsByTagName('body')[0]
+        body.classList.remove(...body.classList)
+    }
+
+    componentDidUpdate(prevProps) {
+        let body;
+        if (this.props.match.params.mood && prevProps.match.params.mood !== this.props.match.params.mood) {
+            body = document.getElementsByTagName('body')[0];
+            body.classList.remove(prevProps.match.params.mood);
+         
+            body.classList.add(this.props.match.params.mood, 'background-color-light')
+        } else if (prevProps.match.params.mood !== this.props.match.params.mood) {
+            body = document.getElementsByTagName('body')[0];
+            body.classList.remove(...body.classList);
+        }
+    }
+    
+    render() {
+        return (
+            <div>
+                <NavBarContainer />
+                <Switch>
+                    <Route exact path="/quiz" component={QuizFormContainer} />
+                    <ProtectedRoute exact path="/dashboard" component={Dashboard} />
+                    <ProtectedRoute path="/map/:mood" component={MapBuffer} />
+                </Switch>
+            </div>
+        )
+    }
+}
+export default withRouter(PostAuth)
