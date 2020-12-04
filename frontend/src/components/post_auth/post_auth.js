@@ -13,7 +13,7 @@ const App = () => (
         <Switch>
             <Route exact path="/quiz" component={QuizFormContainer} />
             <ProtectedRoute exact path="/dashboard" component={Dashboard} />
-            <ProtectedRoute exact path="/map" component={MapBuffer} />
+            <ProtectedRoute path="/map/:mood" component={MapBuffer} />
         </Switch>
     </div>
 );

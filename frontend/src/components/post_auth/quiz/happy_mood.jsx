@@ -1,4 +1,5 @@
 import React from 'react';
+import './quiz.scss';
 
 class HappyMood extends React.Component {
 
@@ -11,8 +12,8 @@ class HappyMood extends React.Component {
     }
 
     return (
-      <div>
-        <h1>Happy</h1>
+      <div className="select-container happy">
+        <h1>HAPPY</h1>
         <div>
           <button name="happySelection" onClick={handleSelection} value="Italian">Italian</button>
           <button name="happySelection" onClick={handleSelection} value="Mexican">Mexican</button>
