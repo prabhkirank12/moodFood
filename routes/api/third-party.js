@@ -16,7 +16,7 @@ router.get("/restaurant",
             axios.get(`https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=${location}&type=restaurant&rankby=distance&key=${keys.googleAPIKey}`)
               .then(resp => {
                 const result = resp.data.results[0];
-                res.json(result);
+                res.json(Object.assign({}, result, {type: "Nearby"}));
             })
               .catch(err => console.log(err));
         } else if (mood === ADVENTUROUS) {
@@ -30,12 +30,11 @@ router.get("/restaurant",
             let unassignedFoods = FOODS.filter(food => !assignedFoodsArr.includes(food));
             if (unassignedFoods.length === 0) unassignedFoods = assignedFoodsArr;
             food = unassignedFoods[Math.floor(Math.random() * unassignedFoods.length)].replace(" ", "%20");
-            console.log(food);
             axios.get(`https://maps.googleapis.com/maps/api/place/nearbysearch/json?keyword=${food}&location=${location}&type=restaurant&radius=${radius}&key=${keys.googleAPIKey}`)
             .then(resp => {
                 const results = resp.data.results;
                 const result = results[Math.floor(Math.random() * results.length)];
-                res.json(result);
+                res.json(Object.assign({},result,{type: food}));
             })
             .catch(err => console.log(err))
         } else {
@@ -46,7 +45,7 @@ router.get("/restaurant",
                 .then(resp => {
                     const results = resp.data.results;
                     const result = results[Math.floor(Math.random() * results.length)];
-                    res.json(result);
+                    res.json(Object.assign({},result,{type: food}));
                 })
                 .catch(err => console.log(err))
         }

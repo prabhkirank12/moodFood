@@ -67,7 +67,7 @@ class Map extends React.Component {
                 west: this.props.restaurant.geometry.viewport.southwest.lng,
                 south: this.props.restaurant.geometry.viewport.southwest.lat,
             })
-            const marker = new window.google.maps.Marker({
+            new window.google.maps.Marker({
                 position: this.props.restaurant.geometry.location,
                 map,
             })
