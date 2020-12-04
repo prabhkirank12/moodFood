@@ -13,8 +13,8 @@ class Footer extends React.Component {
                 </div>
                 <div>
                     <span>Dane Mauland</span>
-                    <a href="http://letmegooglethat.com/?q=backend+expert" className="icons"><FaIcons.FaLinkedin /></a>
-                    <a href="http://letmegooglethat.com/?q=backend+expert" className="icons"><FaIcons.FaGithub /></a>
+                    <a href="https://www.linkedin.com/in/dane-m-63a34412a" className="icons"><FaIcons.FaLinkedin /></a>
+                    <a href="https://github.com/danemauland" className="icons"><FaIcons.FaGithub /></a>
                 </div>
                 <div>
                     <span>Lauren Thompson</span>
