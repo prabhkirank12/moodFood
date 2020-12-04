@@ -1,5 +1,6 @@
 import React from "react";
 import {connect} from "react-redux";
+import {withRouter} from "react-router-dom";
 import {fetchMapKey} from "../../../util/map_api_util";
 import "./map.scss";
 
@@ -38,7 +39,7 @@ const mapStateToProps = (state, ownProps) => {
     console.log(ownProps)
     return {
         restaurant: state.session.user.place,
-
+        currentMood: ownProps.match.params.mood
     }
 }
 
@@ -102,10 +103,10 @@ class Map extends React.Component {
     }
 
     render() {
-        const { restaurant } = this.props;
-        console.log(this.props);
+        const { restaurant, currentMood } = this.props;
+        
         return (
-            <div className={"map-page"}>
+            <div className={currentMood + ' background-color-light' + ' map-page'}>
                 <h2>The food for your mood is...</h2>
                     <div className="restaurant-details">
                         <div>
@@ -119,6 +120,7 @@ class Map extends React.Component {
                             </h4>
                         </div>
                     </div>
+                    <button>Button</button>
                     <div id="map-container" ref="map">
                     </div>
             </div>
@@ -126,4 +128,4 @@ class Map extends React.Component {
     }
 }
 
-export default connect(mapStateToProps, null)(Map);
+export default withRouter(connect(mapStateToProps, null)(Map));

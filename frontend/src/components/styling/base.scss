@@ -104,12 +104,8 @@ $hangry-dark: #DE360D;
     }
 }
 
-.Overwhelmed {
 
-    .background-color-light {
-        background-color: $over-light;
-        color: $over-dark;
-    }
+.Overwhelmed {
 
     button {
         border: 2px solid $over-dark; 
@@ -128,6 +124,11 @@ $hangry-dark: #DE360D;
         background-color: $over-dark; 
         color: $over-light; 
     }
+}
+
+.Overwhelmed.background-color-light{
+    background-color: $over-light;
+    color: $over-dark;
 }
 
 .Stressed {
