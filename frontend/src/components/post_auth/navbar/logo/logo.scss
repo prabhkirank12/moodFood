@@ -1,8 +1,8 @@
+@import "../../../styling/base.scss";
 $circle-radius: 11px;
 
 .logo-container {
     position: relative;
-    border: 1px solid red;
     width: 155px;
     margin: 0 auto;
     span {
@@ -10,8 +10,9 @@ $circle-radius: 11px;
         font-family: 'Teko', sans-serif;
         display: inline-block;
         line-height: 44px;
+        color: $off-white;
     }
-    animation-name: logo;
+    // animation-name: logo;
     // animation-timing-function: linear;
     // animation-duration: 5s;
     // animation-iteration-count: infinite;
@@ -39,17 +40,17 @@ $circle-radius: 11px;
 .circle.down {
     left: 37px;
     top: 35px;
-    border-top: 3px solid black;
-    border-right: 3px solid black;
-    border-left: 3px solid black;
+    border-top: 3px solid $off-white;
+    border-right: 3px solid $off-white;
+    border-left: 3px solid $off-white;
     border-radius: calc(1.5 * #{$circle-radius}) calc(1.5 * #{$circle-radius}) 0 0;
 }
 
 .circle.up {
     top: 36px;
     left: 107px;
-    border-bottom: 3px solid black;
-    border-right: 3px solid black;
-    border-left: 3px solid black;
+    border-bottom: 3px solid $off-white;
+    border-right: 3px solid $off-white;
+    border-left: 3px solid $off-white;
     border-radius: 0 0 calc(1.5 * #{$circle-radius}) calc(1.5 * #{$circle-radius});
 }
