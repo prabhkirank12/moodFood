@@ -1,14 +1,18 @@
 const Validator = require("validator");
 const validText = require("./valid-text");
 
+const HANGRY = "Hangry";
+const ADVENTUROUS = "Adventurous";
+
 const MOODS = [
     "Happy", 
     "Stressed", 
     "Sad",
     "Overwhelmed",
-    "Hangry",
-    "Adventurous",
+    HANGRY,
+    ADVENTUROUS,
 ];
+
 const FOODS = [
     "Italian",
     "Mexican",
@@ -22,7 +26,13 @@ const FOODS = [
     "Fast Food",
     "Seafood",
     "Vegetarian",
-]
+];
+
+const EXCLUDED_MOODS = [
+    HANGRY,
+    ADVENTUROUS,
+];
+
 
 module.exports = function(data) {
     let errors = {};
@@ -38,11 +48,14 @@ module.exports = function(data) {
 
 function validateMood(mood) {
     let errors = {};
-
     mood = validText(mood) ? mood : "";
 
     if (!Validator.isIn(mood, MOODS)) {
         errors.mood = `${mood} is an invalid mood`;
+    }
+
+    if (Validator.isIn(mood, EXCLUDED_MOODS)) {
+        errors.mood = `${mood} is not a customizable mood`;
     }
 
     if (Validator.isEmpty(mood)) {
