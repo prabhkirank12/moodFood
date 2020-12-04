@@ -89,7 +89,7 @@ class Map extends React.Component {
 
     get photos() {
         if (this.props.restaurant.photos && this.state.key) {
-            return (<img src={`https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=${this.props.restaurant.photos[0].photo_reference}&key=${this.state.key}`} alt="restaurant image" />);
+            return (<img src={`https://maps.googleapis.com/maps/api/place/photo?maxwidth=300&photoreference=${this.props.restaurant.photos[0].photo_reference}&key=${this.state.key}`} alt="restaurant image" />);
             
         }
         return (
@@ -103,14 +103,21 @@ class Map extends React.Component {
         const { restaurant } = this.props;
         
         return (
-            <div>
+            <div className="map-page">
+                <h2>The food for your mood is...</h2>
                 <div id="map-container" ref="map">
                 </div>
-                    <div>
-                        {restaurant.name}
-                    </div>
-                    <div>
-                        {restaurant.vicinity}
+                    <div className="restaurant-details">
+                        <div>
+                            <h3>
+                                {restaurant.name}
+                            </h3>
+                        </div>
+                        <div>
+                            <h4>
+                                {restaurant.vicinity}
+                            </h4>
+                        </div>
                     </div>
                     <div>
                         {this.photos}
