@@ -5,7 +5,7 @@ class HappyMood extends React.Component {
 
   render () {
     console.log(this.props);
-    const { currentMood, happySelection, handleSelection } = this.props;
+    const { currentMood, handleSelection } = this.props;
 
     if (currentMood !== 1) {
       return null

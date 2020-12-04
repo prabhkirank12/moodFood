@@ -4,7 +4,7 @@ class OverwhelmedMood extends React.Component {
 
     render() {
 
-        const { currentMood, overwhelmedSelection, handleSelection } = this.props;
+        const { currentMood, handleSelection } = this.props;
 
         if (currentMood !== 4) {
             return null

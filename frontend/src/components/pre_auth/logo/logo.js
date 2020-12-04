@@ -1,7 +1,7 @@
 import React from "react";
 import "./logo.scss";
 
-export default props => (
+const Logo = () => (
     <div className="pre-auth-logo-container">
         <div>
             <span>moodfood</span>
@@ -10,3 +10,5 @@ export default props => (
         </div>
     </div>
 )
+
+export default Logo;

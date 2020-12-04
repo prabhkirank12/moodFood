@@ -1,5 +1,4 @@
 import React from 'react';
-import { Redirect } from 'react-router-dom';
 import HappyMood from './happy_mood';
 import StressedMood from './stressed_mood';
 import SadMood from './sad';
@@ -32,7 +31,7 @@ class QuizForm extends React.Component {
     this.setState({
       currentMood: currentMood
     })
-    { this.handleSubmit(e) }
+    this.handleSubmit(e) 
   }
 
   _prevMood(e) {
@@ -135,22 +134,18 @@ class QuizForm extends React.Component {
           <HappyMood
             currentMood={this.state.currentMood}
             handleSelection={this.handleSelection}
-            happySelection={this.state.happySelection}
             />
           <StressedMood
             currentMood={this.state.currentMood}
             handleSelection={this.handleSelection}
-            stressedSelection={this.state.stressedSelection}
             />
           <SadMood 
             currentMood={this.state.currentMood}
             handleSelection={this.handleSelection}
-            sadSelection={this.state.sadSelection}
             />
           <OverwhelmedMood
             currentMood={this.state.currentMood}
             handleSelection={this.handleSelection}
-            overwhelmedSelection={this.state.overwhelmedSelection}
             />
           <div className="next-bttn">
             {this.backButton}

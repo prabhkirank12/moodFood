@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from 'react-router-dom';
 import "./logo.scss";
 
-export default props => (
+const Logo = () => (
     <Link to="/dashboard" className="logo-container">
         <span>moodfood</span>
         <div className="circle down"></div>
@@ -10,3 +10,4 @@ export default props => (
     </Link>
 )
 
+export default Logo;

@@ -4,7 +4,7 @@ class StressedMood extends React.Component {
 
   render() {
 
-    const { currentMood, stressedSelection, handleSelection } = this.props;
+    const { currentMood, handleSelection } = this.props;
 
     if (currentMood !== 2) {
       return null

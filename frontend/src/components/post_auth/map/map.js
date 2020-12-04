@@ -90,23 +90,20 @@ class Map extends React.Component {
         })
     }
 
-    get photos() {
-        if (this.props.restaurant.photos && this.state.key) {
-            return (<img src={`https://maps.googleapis.com/maps/api/place/photo?maxwidth=300&photoreference=${this.props.restaurant.photos[0].photo_reference}&key=${this.state.key}`} alt="restaurant image" />);
-            
-        }
-        return (
-            <></>
-        )
-
-        
-    }
+    // get photos() {
+    //     if (this.props.restaurant.photos && this.state.key) {
+    //         return (<img src={`https://maps.googleapis.com/maps/api/place/photo?maxwidth=300&photoreference=${this.props.restaurant.photos[0].photo_reference}&key=${this.state.key}`} alt="restaurant" />);   
+    //     }
+    //     return (
+    //         <></>
+    //     )
+    // }
 
     render() {
         const { restaurant, currentMood } = this.props;
         
         return (
-            <div className={currentMood + ' background-color-light' + ' map-page'}>
+            <div className={currentMood + ' background-color-light map-page'}>
                 <h2>The food for your mood is...</h2>
                     <div className="restaurant-details">
                         <div>

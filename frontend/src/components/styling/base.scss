@@ -193,3 +193,12 @@ $hangry-dark: #DE360D;
 .site-background-light {
     background-color: $light-gray;
 }
+
+.spacer{
+    margin-top: 70px;
+}
+
+button {
+    transition: 0.25s ease;
+    cursor: pointer;
+}

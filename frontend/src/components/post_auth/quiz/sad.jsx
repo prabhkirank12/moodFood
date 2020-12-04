@@ -2,7 +2,7 @@ import React from 'react'
 
 class SadMood extends React.Component {
     render(){
-        const { currentMood, sadSelection, handleSelection } = this.props;
+        const { currentMood, handleSelection } = this.props;
         
         if (currentMood !== 3) {
             return null
