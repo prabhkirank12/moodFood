@@ -33,7 +33,7 @@ class Dashboard extends React.Component {
         if (this.state.currentMood) return <Redirect to="/map" />
         return (
             <div className="moods">
-                <p>how are you feeling today?</p>
+                <p>How are you feeling today?</p>
                 <div className="single-mood">
                     {MOODS.map( ( mood, i ) => (
                         <button

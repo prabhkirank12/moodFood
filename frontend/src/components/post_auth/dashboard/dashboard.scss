@@ -1,23 +1,28 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@700&display=swap');
 @import "../../styling/base.scss";
 
 .moods {
-    border: 2px solid pink;
+    border-radius: 6px;
     margin: 0 auto;
     width: 500px;
+    background-color: $light-gray;
+    box-shadow: 0 4px 8px 0 $happy-dark, 0 6px 20px 0 $happy-dark;
 
     p {
+        padding-top: 8px;
         font-size: 30px;
         text-align: center;
         font-family: 'Poppins', sans-serif;
         color: $off-white;
+        font-weight: 700;
     }
 
     button{
         border: none;
-        margin: 10px;
+        margin: 15px;
         height: 100px; 
-        width: 180px; 
+        width: 190px; 
         font-family: 'Poppins', sans-serif;
         font-size: 22px; 
         border-radius: 6px;
@@ -25,12 +30,68 @@
 }
 
 .single-mood{
-    border: 2px solid red;
     display: flex;
     flex-wrap: wrap;
-    width: 400px;
+    width: 500px;
     margin: 0 auto;
-    padding: 15px;
+    padding: 20px;
+
+    .Happy{
+       background-color: $happy-light;
+       color: $happy-dark;
+    }
+    button.Happy:hover{
+         background-color: $happy-dark;
+            color:$happy-light; 
+    }
+
+
+    .Stressed{
+        background-color: $stress-light;
+       color: $stress-dark;  
+    }
+    button.Stressed:hover{
+         background-color: $stress-dark;
+            color:$stress-light; 
+    }
+
+    .Sad{
+        background-color: $sad-light;
+        color: $sad-dark;
+    }
+    button.Sad:hover{
+         background-color: $sad-dark;
+            color:$sad-light; 
+    }
+
+    .Overwhelmed{
+        background-color: $over-light;
+        color: $over-dark;
+    }
+    button.Overwhelmed:hover{
+         background-color: $over-dark;
+            color:$over-light; 
+    }
+
+    .Hangry{
+        background-color: $hangry-light;
+        color: $hangry-dark;
+    }
+    button.Hangry:hover{
+         background-color: $hangry-dark;
+            color:$hangry-light; 
+    }
+
+    .Adventurous{
+        background-color: $adv-light;
+        color: $adv-dark;
+    }
+
+    button.Adventurous:hover{
+         background-color: $adv-dark;
+            color:$adv-light; 
+    }
 }
+
 
 
