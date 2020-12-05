@@ -4,6 +4,9 @@ const mongoose = require("mongoose");
 const User = mongoose.model("User");
 const keys = require("./keys");
 
+// Sets up passport so the user is automatically added to the params for the
+// request to the route
+
 const options = {};
 options.jwtFromRequest = ExtractJwt.fromAuthHeaderAsBearerToken();
 options.secretOrKey = keys.secretOrKey;

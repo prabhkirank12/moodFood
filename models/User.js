@@ -1,6 +1,8 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
+// Defines the structure of the User collection in the database
+
 const UserSchema = new Schema({
   email: {
     type: String,
@@ -18,6 +20,8 @@ const UserSchema = new Schema({
     type: String,
     required: true
   },
+  // sets moods as a map with strings as keys and arrays of strings as the
+  // values
   moods: {
     type: Map,
     of: [String],

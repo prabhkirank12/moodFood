@@ -1,45 +1,15 @@
 const Validator = require("validator");
 const validText = require("./valid-text");
-
-const HANGRY = "Hangry";
-const ADVENTUROUS = "Adventurous";
-
-const MOODS = [
-    "Happy", 
-    "Stressed", 
-    "Sad",
-    "Overwhelmed",
-    HANGRY,
-    ADVENTUROUS,
-];
-
-const FOODS = [
-    "Italian",
-    "Mexican",
-    "Pizza",
-    "Japanese",
-    "Indian",
-    "Chinese",
-    "American",
-    "Dessert",
-    "Thai",
-    "Fast Food",
-    "Seafood",
-    "Vegetarian",
-];
-
-const EXCLUDED_MOODS = [
-    HANGRY,
-    ADVENTUROUS,
-];
-
+const {MOODS, FOODS, EXCLUDED_MOODS} = require("../utils/backend-utils");
 
 module.exports = function(data) {
     let errors = {};
 
+    // Validates the mood, merges the errors into our errors object
     Object.assign(errors, validateMood(data.mood).errors);
     Object.assign(errors, validateFoods(data.foods).errors);
 
+    // Returns the errors and a boolean indication if any errors exist
     return {
         errors,
         isValid: Object.keys(errors).length === 0,
@@ -48,6 +18,7 @@ module.exports = function(data) {
 
 function validateMood(mood) {
     let errors = {};
+    // Sets mood to an empty string if it's not a valid text
     mood = validText(mood) ? mood : "";
 
     if (!Validator.isIn(mood, MOODS)) {
@@ -72,6 +43,7 @@ function validateFood(food) {
 
     let errors = {};
     
+    // Sets food to an empty string if it's not a valid text
     food = validText(food) ? food : "";
     
     if (!Validator.isIn(food, FOODS)) {
@@ -87,6 +59,7 @@ function validateFood(food) {
 function validateFoods(foods) {
     let errors = {};
 
+    // Ensures foods is an array then validates each food element
     if (Array.isArray(foods)) {
         foods.forEach(food => {
 
