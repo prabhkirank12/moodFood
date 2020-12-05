@@ -2,6 +2,7 @@ import React from "react";
 import { connect } from "react-redux";
 import { Route, Redirect, withRouter } from "react-router-dom";
 
+// Redirects if the user is logged in
 const Auth = ({ component: Component, path, loggedIn, exact }) => (
   <Route path={path} exact={exact} render={(props) => (
     !loggedIn ? (
@@ -14,24 +15,26 @@ const Auth = ({ component: Component, path, loggedIn, exact }) => (
 );
 
 const protectedMapStateToProps = state => {
-  const moods = state.session.user && state.session.user.moodsExist;
+  const moodsExist = state.session.user && state.session.user.moodsExist;
   return ({
     loggedIn: state.session.isAuthenticated,
-    moods,
+    moodsExist,
   })
 };
 
-
-const Protected = ({ component: Component, loggedIn, moods, ...rest }) => (
+// Redirects if user isn't logged in or the user hasn't set up their moodsExist
+const Protected = ({ component: Component, loggedIn, moodsExist, ...rest }) => (
   <Route
     {...rest}
-    render={props =>
-      loggedIn && moods ? (
-        <Component {...props} />
-      ) : (
-        <Redirect to="/quiz" />
-      )
-    }
+    render={props => {
+      if (!loggedIn) {
+        return <Redirect to="/login" />
+      } else if (!moodsExist) {
+        return <Redirect to="/quiz" />
+      } else {
+        return <Component {...props} />
+      }
+    }}
   />
 );
 
@@ -39,6 +42,7 @@ const semiProtectedMapStateToProps = state => (
   {loggedIn: state.session.isAuthenticated}
 );
 
+// Redirects if the user isn't logged in
 const SemiProtected = ({ component: Component, loggedIn, ...rest }) => (
   <Route
     {...rest}
