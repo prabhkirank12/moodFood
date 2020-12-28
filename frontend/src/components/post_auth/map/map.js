@@ -2,6 +2,7 @@ import React from "react";
 import {connect} from "react-redux";
 import {withRouter} from "react-router-dom";
 import {fetchMapKey} from "../../../util/map_api_util";
+import {removePlace} from '../../../actions/places_actions';
 import "./map.scss";
 
 const mapStateToProps = (state, ownProps) => {
@@ -11,6 +12,10 @@ const mapStateToProps = (state, ownProps) => {
         currentMood: ownProps.match.params.mood
     }
 }
+
+const mapDispatchToProps = (dispatch) => ({
+    removePlace: () => dispatch(removePlace())
+})
 
 class Map extends React.Component {
 
@@ -53,6 +58,10 @@ class Map extends React.Component {
         })
     }
 
+    componentWillUnmount() {
+        this.props.removePlace();
+    }
+
     // get photos() {
     //     if (this.props.restaurant.photos && this.state.key) {
     //         return (<img src={`https://maps.googleapis.com/maps/api/place/photo?maxwidth=300&photoreference=${this.props.restaurant.photos[0].photo_reference}&key=${this.state.key}`} alt="restaurant" />);   
@@ -88,4 +97,4 @@ class Map extends React.Component {
     }
 }
 
-export default withRouter(connect(mapStateToProps, null)(Map));
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Map));
