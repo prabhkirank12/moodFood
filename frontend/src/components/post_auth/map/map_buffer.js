@@ -2,7 +2,7 @@ import Map from "./map";
 import {connect} from "react-redux";
 import { withRouter } from 'react-router-dom';
 import React from "react";
-import dumpling from '../../../images/dumplingnoshadow.png';
+import dumpling from '../../../images/dumplingnoshadow.png'
 import { fetchRestaurant } from '../../../actions/places_actions';
 
 const mapStateToProps = state => ({
@@ -17,8 +17,7 @@ const mapDispatchToProps = (dispatch) => ({
 class MapBuffer extends React.Component {
 
     componentDidMount() {
-        this.props.fetchRestaurant(this.props.match.params.mood)
-        
+        this.props.fetchRestaurant(this.props.match.params.mood);
     }
 
     render() {
