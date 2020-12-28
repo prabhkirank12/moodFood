@@ -35,7 +35,7 @@ class Greeting extends React.Component {
                     <Link to={'/signup'}>Sign Up</Link>
                 </div>
                 <div className="buttons-login">
-                    <Link onClick={this.handleDemoLogin}>Demo</Link>
+                    <Link to="/" onClick={this.handleDemoLogin}>Demo</Link>
                 </div>
             </div>
         );
