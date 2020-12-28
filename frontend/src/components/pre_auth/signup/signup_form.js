@@ -85,6 +85,7 @@ class SignupForm extends React.Component {
                             />
                             <br />
                             <input type="submit" value="SUBMIT" />
+                            <input type="submit" onClick={this.handleDemoLogin} value="DEMO" />
                             {this.renderErrors()}
                         </div>
                     </form>
