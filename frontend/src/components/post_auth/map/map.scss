@@ -33,3 +33,27 @@
     flex-direction: column;
     align-items: center;
 }
+
+.buffer {
+    height: 500px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.loader {
+    width: 200px;
+    animation: bounce 2s linear infinite;
+    display: flex;
+    justify-content: center;
+    img {
+        width: 150px;
+    }
+}
+
+@keyframes bounce {
+    0%   { transform: translateY(0); }
+    50%  { transform: translateY(-100px); }
+    100% { transform: translateY(0); }
+}

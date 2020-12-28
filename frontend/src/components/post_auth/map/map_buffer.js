@@ -2,6 +2,7 @@ import Map from "./map";
 import {connect} from "react-redux";
 import { withRouter } from 'react-router-dom';
 import React from "react";
+import dumpling from '../../../images/dumplingnoshadow.png';
 import { fetchRestaurant } from '../../../actions/places_actions';
 
 const mapStateToProps = state => ({
@@ -21,7 +22,15 @@ class MapBuffer extends React.Component {
     }
 
     render() {
-        return this.props.restaurant ? <Map /> : <div className="buffer"></div>
+        return (this.props.restaurant) ? (
+            <Map />
+        ) : (
+            <div className="buffer">
+                <div className="loader">
+                    <img src={dumpling} alt="dumpling loader" />
+                </div>
+            </div>
+        )
     }
 }
 
