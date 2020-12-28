@@ -15,10 +15,7 @@ const sessionReducer = (state = defaultState, action) => {
   let newState = Object.assign({}, state);
   switch (action.type) {
     case RECEIVE_USER_LOGOUT:
-      return {
-        isAuthenticated: false,
-        user: undefined
-      };
+      return Object.assign({}, defaultState);
     case RECEIVE_CURRENT_USER:
       return {
         ...state,

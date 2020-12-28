@@ -10,7 +10,9 @@ $circle-radius: 33px;
     justify-content: center;
     min-height: 200px;
     color: $happy-dark;
-    span {
+    a {
+        text-decoration: none;
+        color: inherit;
         font-size: 120px;
         font-family: 'Teko', sans-serif;
         line-height: 60px;

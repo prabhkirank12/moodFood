@@ -88,6 +88,13 @@ router.post("/login", (req, res) => {
             bcrypt.compare(password, user.password)
                 .then(isMatch => {
                     if (isMatch) {
+                        // checks if the user is a demo user, and resets their
+                        // moods to nothing if so
+                        if (email === "demo@demo.com") {
+                          user.moods.forEach((val, key) => user.moods.set(key, []));
+                          user.save();
+                        }
+                      
                         // checks if the user has any assigned food types
                         moodsExist = getAssignedUserFoods(user).length > 0;
 

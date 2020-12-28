@@ -12,6 +12,7 @@ class LoginForm extends React.Component {
         };
 
         this.handleSubmit = this.handleSubmit.bind(this);
+        this.handleDemoLogin = this.handleDemoLogin.bind(this);
         this.renderErrors = this.renderErrors.bind(this);
     };
 
@@ -30,6 +31,16 @@ class LoginForm extends React.Component {
         let user = {
             email: this.state.email,
             password: this.state.password
+        };
+
+        this.props.login(user);
+    };
+
+    handleDemoLogin(e) {
+        e.preventDefault();
+        let user = {
+            email: "demo@demo.com",
+            password: "password",
         };
 
         this.props.login(user);
@@ -72,6 +83,7 @@ class LoginForm extends React.Component {
                     <div className="session-link">
                         <span>New to moodfood? </span>
                         <Link to="/signup">Create an account.</Link>
+                        <Link to="/" onClick={this.handleDemoLogin}>Demo</Link>
                     </div>
                 </div>
             </div>
