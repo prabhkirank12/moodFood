@@ -13,6 +13,7 @@ class SignupForm extends React.Component {
             errors: {}
         };
         this.handleSubmit = this.handleSubmit.bind(this);
+        this.handleDemoLogin = this.handleDemoLogin.bind(this);
         this.clearedErrors = false;
     };
 
@@ -34,6 +35,16 @@ class SignupForm extends React.Component {
         };
 
         this.props.signup(user, this.props.history);
+    };
+
+    handleDemoLogin(e) {
+        e.preventDefault();
+        let user = {
+            email: "demo@demo.com",
+            password: "password",
+        };
+
+        this.props.login(user);
     };
 
     renderErrors() {

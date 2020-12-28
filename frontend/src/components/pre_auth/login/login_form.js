@@ -79,7 +79,7 @@ class LoginForm extends React.Component {
                     <div className="session-link">
                         <span>New to moodfood? </span>
                         <Link to="/signup">Create an account.</Link>
-                        <Link onClick={this.handleDemoLogin}>Demo</Link>
+                        <Link to="/" onClick={this.handleDemoLogin}>Demo</Link>
                     </div>
                 </div>
             </div>
