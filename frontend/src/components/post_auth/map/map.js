@@ -6,7 +6,6 @@ import {removePlace} from '../../../actions/places_actions';
 import "./map.scss";
 
 const mapStateToProps = (state, ownProps) => {
-    console.log(ownProps)
     return {
         restaurant: state.session.user.place,
         currentMood: ownProps.match.params.mood
