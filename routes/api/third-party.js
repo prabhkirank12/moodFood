@@ -66,7 +66,7 @@ router.get("/restaurant",
                 // Pulls the food types the user likes for their current mood
                 availableFoods = req.user.moods.get(mood);
             }
-
+            
             // Selects a random food type
             food = availableFoods[
                 Math.floor(Math.random() * availableFoods.length)
