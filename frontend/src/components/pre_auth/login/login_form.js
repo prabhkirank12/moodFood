@@ -21,6 +21,10 @@ class LoginForm extends React.Component {
         });
     };
 
+    componentDidMount(){
+        this.props.clearSessionErrors();
+    }
+
     handleSubmit(e) {
         e.preventDefault();
         let user = {
