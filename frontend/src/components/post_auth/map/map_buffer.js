@@ -28,7 +28,11 @@ class MapBuffer extends React.Component {
                 <div className="loader">
                     <img src={dumpling} alt="dumpling loader" />
                 </div>
-            </div>
+                <br/>
+                    <div className="restaurant-details">
+                    <h5>If your results are delayed, make sure you've turned on your location in your browser.</h5>
+                </div>
+            </div> 
         )
     }
 }

@@ -25,13 +25,16 @@
         font-size: 24px;
         margin: 0px;
     }
-    
 }
 
 .restaurant-details {
     display: flex;
     flex-direction: column;
     align-items: center;
+    h5 {
+        margin-top: 200px;
+        font-family: 'Poppins', sans-serif;
+    }
 }
 
 .buffer {
@@ -40,6 +43,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
 }
 
 .loader {
