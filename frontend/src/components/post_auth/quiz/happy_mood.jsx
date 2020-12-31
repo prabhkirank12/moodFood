@@ -4,7 +4,6 @@ import './quiz.scss';
 class HappyMood extends React.Component {
 
   render () {
-    console.log(this.props);
     const { currentMood, handleSelection } = this.props;
 
     if (currentMood !== 1) {
