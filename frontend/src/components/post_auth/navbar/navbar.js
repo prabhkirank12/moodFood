@@ -18,7 +18,7 @@ class NavBar extends React.Component {
 
     getLinks() {
         const path = this.props.location.pathname;
-        if (this.props.loggedIn && path.slice(-4) !== 'quiz') {
+        if (this.props.loggedIn && path.slice(-9) === 'dashboard') {
             return (
                 <div className="logout-bttn">
                     <button className="logout" onClick={this.logoutUser}>Logout</button>
