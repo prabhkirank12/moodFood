@@ -25,13 +25,23 @@ class QuizForm extends React.Component {
   //logic for selecting which mood is previous/next based on the current
   _nextMood(e) {
     let currentMood = this.state.currentMood;
-    //If our current mood is less than 4, we want to add one
-    //Ensures we never go above 4 since we have 4 moods
-    currentMood = currentMood >= 3 ? 4 : currentMood + 1;
-    this.setState({
-      currentMood: currentMood
-    })
-    this.handleSubmit(e) 
+    let selections = {
+      1: this.state.happySelection,
+      2: this.state.stressedSelection,
+      3: this.state.sadSelection,
+      4: this.state.overwhelmedSelection
+    }
+    if (selections[currentMood].length > 0) {
+      //If our current mood is less than 4, we want to add one
+      //Ensures we never go above 4 since we have 4 moods
+      this.handleSubmit(e) 
+      currentMood = currentMood >= 3 ? 4 : currentMood + 1;
+      this.setState({
+        currentMood: currentMood
+      })
+    } else {
+      alert("You must select at least one food!")
+    }
   }
 
   _prevMood(e) {
@@ -59,7 +69,6 @@ class QuizForm extends React.Component {
 
   get nextButton() {
     let currentMood = this.state.currentMood;
-
     if (currentMood < 4) {
       return (
         <button className="next-bttn" onClick={this._nextMood}>Submit this Mood</button>
@@ -77,12 +86,17 @@ class QuizForm extends React.Component {
     e.preventDefault();
     const { name, value } = e.target;
     const foods = this.state[name] ? [...this.state[name]] : [];
-    foods.push(value);
+    if (!foods.includes(value)) {
+      foods.push(value);
+      e.target.classList.add("selected-button");
+    } else {
+      let foodIdx = foods.indexOf(value);
+      foods.splice(foodIdx, 1);
+      e.target.classList.remove("selected-button");
+    }
     this.setState({
       [name]: foods,
     })
-
-    e.target.classList.add("selected-button");
   }
 
   //processes the user's quiz (sends their choices to the backend)
@@ -91,37 +105,44 @@ class QuizForm extends React.Component {
     e.preventDefault();
     let mood;
     let submission;
-    if (this.state.currentMood === 1) {
-      mood = "Happy";
-      submission = { 
-        mood: mood,
-        foods: this.state.happySelection 
+
+      if (this.state.currentMood === 1) {
+        mood = "Happy";
+        submission = { 
+          mood: mood,
+          foods: this.state.happySelection 
+        }
+        this.props.processForm(submission);
+      } else if (this.state.currentMood === 2) {
+        mood = "Stressed";
+        submission = { 
+          mood: mood,
+          foods: this.state.stressedSelection 
+        }
+        this.props.processForm(submission);
+      } else if (this.state.currentMood === 3) {
+        mood = "Sad";
+        submission = { 
+          mood: mood,
+          foods: this.state.sadSelection
+        }
+        this.props.processForm(submission);
+      } else {
+        if (this.state.overwhelmedSelection.length > 0) {
+          //If our current mood is less than 4, we want to add one
+          //Ensures we never go above 4 since we have 4 moods
+          mood = "Overwhelmed";
+          submission = {
+            mood: mood,
+            foods: this.state.overwhelmedSelection
+          }
+          this.props.processForm(submission);
+          this.props.history.push("/dashboard");
+        } else {
+          alert("You must select at least one food!")
+        }
       }
-      this.props.processForm(submission);
-    } else if (this.state.currentMood === 2) {
-      mood = "Stressed";
-      submission = { 
-        mood: mood,
-        foods: this.state.stressedSelection 
-      }
-      this.props.processForm(submission);
-    } else if (this.state.currentMood === 3) {
-      mood = "Sad";
-      submission = { 
-        mood: mood,
-        foods: this.state.sadSelection
-      }
-      this.props.processForm(submission);
-    } else {
-      mood = "Overwhelmed";
-      submission = { 
-        mood: mood,
-        foods: this.state.overwhelmedSelection
-      }
-      this.props.processForm(submission);
-      this.props.history.push("/dashboard")
-    }
-    
+
   }
 
   render() {
