@@ -22,7 +22,6 @@ router.get("/restaurant",
         const radius = req.query.radius;
 
         // Declares needed variables
-        let food;
         let result;
         let type;
         let availableFoods;
@@ -60,30 +59,44 @@ router.get("/restaurant",
 
                 // if no foods are unassigned, sets unassigned foods to all the
                 // foods so one can be selected randomly
-                if (availableFoods.length === 0) availableFoods = assignedFoodsArr;
+                if (availableFoods.length === 0) availableFoods = [...assignedFoodsArr];
 
             } else {
                 // Pulls the food types the user likes for their current mood
-                availableFoods = req.user.moods.get(mood);
+                availableFoods = [...req.user.moods.get(mood)];
             }
             
-            // Selects a random food type
-            food = availableFoods[
-                Math.floor(Math.random() * availableFoods.length)
-            ].replace(" ", "%20"); //formats the food type to be used in a URL
-            // since URLs cannot contain spaces
+            // // Selects a random food type
+            // food = availableFoods[
+            //     Math.floor(Math.random() * availableFoods.length)
+            // ].replace(" ", "%20"); //formats the food type to be used in a URL
+            // // since URLs cannot contain spaces
+
+            // shuffles the foods array so they will be iterated through in a
+            // random order
+            availableFoods.shuffle;
+            let i = 0;
             
             // Fetches the restaurasts from google that match the food type
             // and search radius
-            axios.get(`https://maps.googleapis.com/maps/api/place/nearbysearch/json?keyword=${food}&location=${location}&type=restaurant&radius=${radius}&key=${keys.googleAPIKey}`)
-                .then(resp => {
-                    // Selects a random result and sends it back
-                    results = resp.data.results;
-                    result = results[Math.floor(Math.random() * results.length)];
-                    type = food.replace("%20", " ");
-                    sendResponse(res, result, type);
-                })
-                .catch(err => res.status(400).json(err));
+            const fetchRestaurants = () => {
+                if (i === availableFoods.length) res.status(400).json("No restaurants found. Consider moving to civilization or increasing your search radius.");
+                const food = availableFoods[i++].replace(" ", "%20"); //formats the food type to be used in a URL and increments i
+                axios.get(`https://maps.googleapis.com/maps/api/place/textsearch/json?query=${food}&location=${location}&type=restaurant&radius=${radius}&key=${keys.googleAPIKey}`)
+                    .then(resp => {
+                        // Selects a random result and sends it back
+                        results = resp.data.results;
+                        if (results.length) {
+                            result = results[Math.floor(Math.random() * results.length)];
+                            type = food.replace("%20", " ");
+                            sendResponse(res, result, type);
+                        } else {
+                            fetchRestaurants();
+                        }
+                    })
+                    .catch(err => res.status(400).json(err));
+            }
+            fetchRestaurants();
         }
     }
 )

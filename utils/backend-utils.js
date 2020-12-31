@@ -1,6 +1,14 @@
 // Pulls the iterable lists of foods arrays from the user moods 
 // map and combines all the food elements into one array
 
+Array.prototype.shuffle = function() {
+    for(let i = 0; i < this.length; i++) {
+        randIdx = Math.floor(Math.random() * this.length);
+        [this[i], this[randIdx]] = [this[randIdx], this[i]];
+    }
+    return this;
+}
+
 exports.getAssignedUserFoods = user => {
 
     assignedFoodsIter = user.moods.values();
