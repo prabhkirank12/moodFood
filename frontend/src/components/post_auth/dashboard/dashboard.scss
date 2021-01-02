@@ -3,6 +3,7 @@
 @import "../../styling/base.scss";
 
 .moods {
+    box-sizing: border-box;
     border-radius: 6px;
     margin: 0 auto;
     width: 500px;
@@ -37,9 +38,10 @@
 }
 
 .single-mood{
-
+    box-sizing: border-box;
     display: flex;
     flex-wrap: wrap;
+    justify-content: space-evenly;
     width: 500px;
     margin: auto;
     padding: 20px;
