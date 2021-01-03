@@ -37,7 +37,7 @@ class PostAuth extends React.Component {
                 <Switch>
                     <Route exact path="/quiz" component={QuizFormContainer} />
                     <ProtectedRoute exact path="/dashboard" component={Dashboard} />
-                    <ProtectedRoute path="/map/:mood" component={MapBuffer} />
+                    <ProtectedRoute path="/map/:mood/:radius" component={MapBuffer} />
                 </Switch>
             </div>
         )

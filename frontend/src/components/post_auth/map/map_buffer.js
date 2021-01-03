@@ -5,19 +5,25 @@ import React from "react";
 import dumpling from '../../../images/dumplingnoshadow.png'
 import { fetchRestaurant } from '../../../actions/places_actions';
 
-const mapStateToProps = state => ({
-    restaurant: state.session.user.place,
-});
+const mapStateToProps = (state, ownProps) => {
+    console.log(ownProps);
+    return {
+        restaurant: state.session.user.place
+    }
+};
 
 const mapDispatchToProps = (dispatch) => ({
-    fetchRestaurant: mood => dispatch(fetchRestaurant(mood))
+    fetchRestaurant: (mood, radius) => dispatch(fetchRestaurant(mood, radius))
 })
 
 
 class MapBuffer extends React.Component {
 
     componentDidMount() {
-        this.props.fetchRestaurant(this.props.match.params.mood);
+        let mood = this.props.match.params.mood;
+        let radius = this.props.match.params.radius;
+        this.props.fetchRestaurant(mood, radius);
+        console.log(radius);
     }
 
     render() {
